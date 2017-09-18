@@ -15,16 +15,13 @@ public class EnterMoodController {
     
     /**
      * Default constructor for EnterMoodController class
-     * @param model
-     * @param view 
      */
     public EnterMoodController(MoodModel model, EnterMoodView view){
         
     }
     
     /**
-     * Method to set the mood.
-     * @param mood 
+     * Method to set the mood. 
      */
     public void setMood(String mood){
         model.setMood(mood);

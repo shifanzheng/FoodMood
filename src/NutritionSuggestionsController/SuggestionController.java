@@ -16,8 +16,6 @@ public class SuggestionController {
     
     /**
      * Default constructor for SuggestionController class.
-     * @param model
-     * @param view 
      */
     public SuggestionController(SuggestionModel model, SuggestionView view){
         

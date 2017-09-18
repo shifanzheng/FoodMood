@@ -17,8 +17,6 @@ public class EnterFoodController {
 
     /**
      * Default constructor for the EnterFoodController class
-     * @param model
-     * @param view 
      */
     public EnterFoodController(FoodModel model, EnterFoodView view) {
 
@@ -26,7 +24,6 @@ public class EnterFoodController {
 
     /**
      * Setter for name of food.
-     * @param food 
      */
     public void setName(String food) {
         model.setName(food);

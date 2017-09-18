@@ -17,8 +17,6 @@ public class FoodStatsController {
     
     /**
      * Default constructor for FoodStatsController class
-     * @param model
-     * @param view 
      */
     public FoodStatsController(FoodModel model, FoodStatsView view) {
 

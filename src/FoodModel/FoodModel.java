@@ -13,10 +13,6 @@ public class FoodModel {
 
     /**
      * Default constructor for FoodModel class
-     * @param name
-     * @param type
-     * @param price
-     * @param quantity 
      */
     public FoodModel(){
         

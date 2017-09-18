@@ -16,8 +16,6 @@ public class MicroController {
     
     /**
      * Default constructor for MicroController class
-     * @param model
-     * @param view 
      */
     public MicroController(MicroModel model, MicroView view){
         

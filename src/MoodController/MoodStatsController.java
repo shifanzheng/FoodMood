@@ -16,8 +16,6 @@ public class MoodStatsController {
 
     /**
      * Default constructor for MoodStatsController class.
-     * @param model
-     * @param view 
      */
     public MoodStatsController(MoodModel model, MoodStatsView view) {
 

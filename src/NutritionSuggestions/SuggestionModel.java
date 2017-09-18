@@ -10,6 +10,13 @@ public class SuggestionModel {
     private int calories;
     private int protein;
     private int sodium;
+    
+    /**
+     * Default constructor for SuggestionModel class.
+     */
+    public SuggestionModel(){
+        
+    }
 
     /**
      * @return the calories

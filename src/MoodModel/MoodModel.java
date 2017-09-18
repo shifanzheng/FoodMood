@@ -10,6 +10,12 @@ public class MoodModel {
     private String mood;
 
     /**
+     * Default constructor for MoodModel class
+     */
+    public MoodModel(){
+        
+    }
+    /**
      * @return the mood
      */
     public String getMood() {

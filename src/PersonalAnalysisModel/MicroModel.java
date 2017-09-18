@@ -8,4 +8,10 @@ package PersonalAnalysisModel;
  */
 public class MicroModel {
     
+    /**
+     * Default constructor for MicroModel class.
+     */
+    public MicroModel(){
+        
+    }
 }

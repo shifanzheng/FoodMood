@@ -12,6 +12,16 @@ public class FoodModel {
     private int quantity;
 
     /**
+     * Default constructor for FoodModel class
+     * @param name
+     * @param type
+     * @param price
+     * @param quantity 
+     */
+    public FoodModel(){
+        
+    }
+    /**
      * @return the name
      */
     public String getName() {

@@ -14,10 +14,19 @@ public class FoodStatsController {
     private FoodModel model = new FoodModel();
     private FoodStatsView view = new FoodStatsView();
 
+    
+    /**
+     * Default constructor for FoodStatsController class
+     * @param model
+     * @param view 
+     */
     public FoodStatsController(FoodModel model, FoodStatsView view) {
 
     }
 
+    /**
+     * Method to get statistics on food.
+     */
     public void getStats() {
 
     }

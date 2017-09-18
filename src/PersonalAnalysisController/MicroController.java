@@ -21,5 +21,18 @@ public class MicroController {
         
     }
     
+        /**
+     * Method to return time value.
+     */
+    public int getTime() {
+        return model.getTime();
+    }
+
+    /**
+     * Method to set time.
+     */
+    public void setTime(int time) {
+        model.setTime(time);
+    }
     
 }

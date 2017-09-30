@@ -20,6 +20,8 @@ public class FoodMood {
         FoodModel model = new FoodModel();
         EnterFoodView view = new EnterFoodView();
         EnterFoodController foodcntl = new EnterFoodController(model, view);
+        view.displayView();
+        
         
     }
     

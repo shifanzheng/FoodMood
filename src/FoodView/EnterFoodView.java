@@ -1,11 +1,13 @@
 
 package FoodView;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Shifan
  */
-public class EnterFoodView {
+public class EnterFoodView extends JFrame{
     
     /**
      * Default constructor for EnterFoodView Class

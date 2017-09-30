@@ -12,19 +12,23 @@ import FoodView.FoodStatsView;
  */
 public class EnterFoodController {
 
-    private FoodModel model = new FoodModel();
-    private EnterFoodView view = new EnterFoodView();
+    private static FoodModel model;
+    private static EnterFoodView view;
 
 
     /**
      * Default constructor for the EnterFoodController class
+     * @param model
+     * @param view
      */
     public EnterFoodController(FoodModel model, EnterFoodView view) {
-
+        EnterFoodController.model = new FoodModel();
+        EnterFoodController.view = new EnterFoodView();
     }
 
     /**
      * Setter for name of food.
+     * @param food
      */
     public void setName(String food) {
         model.setName(food);
@@ -36,9 +40,11 @@ public class EnterFoodController {
     public void updateView() {
         
     }
+    
     public void initializeFoodStat(){
         FoodStatsView statsview = new FoodStatsView();
         FoodStatsController foodstatcntl = new FoodStatsController(model, statsview);
+        statsview.setVisible(true);
     
     }
 }

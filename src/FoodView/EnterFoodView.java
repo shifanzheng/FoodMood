@@ -19,7 +19,7 @@ public class EnterFoodView extends JFrame{
     /**
      * Method to display view
      */
-        public void displayView() {
+    public void displayView() {
 
     }
 }

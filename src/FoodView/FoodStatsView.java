@@ -2,11 +2,13 @@
  */
 package FoodView;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Shifan
  */
-public class FoodStatsView {
+public class FoodStatsView extends JFrame{
 
     /**
      * Default constructor for FoodStatView class

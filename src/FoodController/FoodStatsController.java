@@ -26,6 +26,8 @@ public class FoodStatsController {
      * Method to get statistics on food.
      */
     public void getStats() {
-
+        model.getName();
+        model.getType();
+        
     }
 }

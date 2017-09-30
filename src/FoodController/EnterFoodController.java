@@ -4,6 +4,7 @@ package FoodController;
 
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
+import FoodView.FoodStatsView;
 
 /**
  *
@@ -33,6 +34,11 @@ public class EnterFoodController {
      * Method to update view
      */
     public void updateView() {
-
+        
+    }
+    public void initializeFoodStat(){
+        FoodStatsView statsview = new FoodStatsView();
+        FoodStatsController foodstatcntl = new FoodStatsController(model, statsview);
+    
     }
 }

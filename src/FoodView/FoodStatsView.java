@@ -2,6 +2,7 @@
  */
 package FoodView;
 
+import FoodModel.FoodModel;
 import javax.swing.JFrame;
 
 /**
@@ -13,8 +14,9 @@ public class FoodStatsView extends JFrame{
     /**
      * Default constructor for FoodStatView class
      */
+    
     public FoodStatsView(){
-        
+        FoodModel model = new FoodModel();
     }
     
     /**

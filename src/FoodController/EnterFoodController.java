@@ -37,8 +37,8 @@ public class EnterFoodController {
     /**
      * Method to update view
      */
-    public void updateView() {
-        
+    public void updateView(EnterFoodView view) {
+        view.setVisible(true);
     }
     
     public void initializeFoodStat(){

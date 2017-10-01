@@ -10,18 +10,18 @@ import PersonalAnalysisView.MicroView;
  * @author Shifan
  */
 public class MicroController {
+
     private MicroModel model = new MicroModel();
     private MicroView view = new MicroView();
-    
-    
+
     /**
      * Default constructor for MicroController class
      */
-    public MicroController(MicroModel model, MicroView view){
-        
+    public MicroController(MicroModel model, MicroView view) {
+
     }
-    
-        /**
+
+    /**
      * Method to return time value.
      */
     public int getTime() {
@@ -34,5 +34,8 @@ public class MicroController {
     public void setTime(int time) {
         model.setTime(time);
     }
-    
+
+    public void updateView(MicroView view) {
+        view.setVisible(true);
+    }
 }

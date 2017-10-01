@@ -20,6 +20,6 @@ public class EnterFoodView extends JFrame{
      * Method to display view
      */
     public void displayView() {
-
+        this.setVisible(true);
     }
 }

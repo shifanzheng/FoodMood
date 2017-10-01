@@ -3,7 +3,7 @@
 package NutritionSuggestionsController;
 
 import NutritionSuggestionView.SuggestionView;
-import NutritionSuggestions.SuggestionModel;
+import NutritionSuggestionsModel.SuggestionModel;
 
 /**
  *
@@ -24,8 +24,8 @@ public class SuggestionController {
     /**
      * Method to update the view
      */
-    public void updateView(){
-        
+    public void updateView(SuggestionView view){
+        view.setVisible(true);
     }
     
     

@@ -2,11 +2,13 @@
  */
 package MoodView;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Shifan
  */
-public class MoodStatsView {
+public class MoodStatsView extends JFrame{
     
     /**
      * Default constructor for MoodStatView class.
@@ -19,6 +21,6 @@ public class MoodStatsView {
      * Method to display view.
      */
         public void displayView(){
-        
+        this.setVisible(true);
     }
 }

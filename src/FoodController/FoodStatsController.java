@@ -17,14 +17,14 @@ public class FoodStatsController {
     private FoodModel model = new FoodModel();
     private FoodStatsView view = new FoodStatsView();
 
-    
     /**
      * Default constructor for FoodStatsController class
+     *
      * @param model
      * @param view
      */
     public FoodStatsController(FoodModel model, FoodStatsView view) {
-        
+
     }
 
     /**
@@ -33,14 +33,18 @@ public class FoodStatsController {
     public void getStats() {
         model.getName();
         model.getType();
-        
+
     }
-    
-    public void initilizeMood(){
+
+    public void updateView(FoodStatsView view) {
+        view.setVisible(true);
+    }
+
+    public void initilizeMood() {
         EnterMoodView moodView = new EnterMoodView();
         MoodModel moodmodel = new MoodModel();
         EnterMoodController moodCntl = new EnterMoodController(moodmodel, moodView);
         moodView.displayView();
- 
+
     }
 }

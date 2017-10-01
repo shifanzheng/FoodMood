@@ -2,11 +2,13 @@
  */
 package NutritionSuggestionView;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Shifan
  */
-public class SuggestionView {
+public class SuggestionView extends JFrame{
     
     /**
      * Default constructor for SuggestionView class

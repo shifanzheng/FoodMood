@@ -32,7 +32,7 @@ public class MoodStatsController {
     /**
      * Method to update the view.
      */
-    public void updateView() {
-
+    public void updateView(MoodStatsView view) {
+        view.setVisible(true);
     }
 }

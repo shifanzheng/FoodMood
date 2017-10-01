@@ -23,6 +23,6 @@ public class FoodStatsView extends JFrame{
      * Method to display the view
      */
     public void displayView() {
-
+        this.setVisible(true);
     }
 }

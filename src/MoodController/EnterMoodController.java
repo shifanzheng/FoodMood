@@ -6,7 +6,7 @@ import MoodModel.MoodModel;
 import MoodView.EnterMoodView;
 import NutritionSuggestionView.SuggestionView;
 import NutritionSuggestionsController.SuggestionController;
-import NutritionSuggestions.SuggestionModel;
+import NutritionSuggestionsModel.SuggestionModel;
 import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
@@ -41,8 +41,8 @@ public class EnterMoodController {
     /**
      * Method to update the view.
      */
-    public void updateView(){
-        
+    public void updateView(EnterMoodView view){
+        view.setVisible(true);
     }
     
     public void initializeNutrition(){

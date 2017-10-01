@@ -21,6 +21,6 @@ public class EnterMoodView extends JFrame{
      * Method to display the view.
      */
     public void displayView(){
-        
+        this.setVisible(true);
     }
 }

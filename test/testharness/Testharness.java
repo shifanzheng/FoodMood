@@ -18,6 +18,9 @@ import MoodView.MoodStatsViewIT;
 import NutritionSuggestionView.SuggestionViewIT;
 import NutritionSuggestionsController.SuggestionControllerIT;
 import NutritionSuggestionsModel.SuggestionModelIT;
+import PersonalAnalysisController.MicroController;
+import PersonalAnalysisModel.MicroModelIT;
+import PersonalAnalysisView.MicroViewIT;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runner.JUnitCore;
@@ -54,6 +57,12 @@ public class Testharness {
         tests.add(SuggestionControllerIT.class);
         
         tests.add(SuggestionModelIT.class);
+        
+        tests.add(MicroController.class);
+        
+        tests.add(MicroModelIT.class);
+        
+        tests.add(MicroViewIT.class);
 
         for(int i = 0; i < tests.size(); i++){
             runTests(tests.get(i));

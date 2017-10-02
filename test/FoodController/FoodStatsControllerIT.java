@@ -47,7 +47,6 @@ public class FoodStatsControllerIT {
         FoodStatsController instance = null;
         instance.getStats();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,7 +59,6 @@ public class FoodStatsControllerIT {
         FoodStatsController instance = null;
         instance.updateView(view);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,7 +70,6 @@ public class FoodStatsControllerIT {
         FoodStatsController instance = null;
         instance.initilizeMood();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

@@ -48,7 +48,6 @@ public class FoodModelIT {
         String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +60,6 @@ public class FoodModelIT {
         FoodModel instance = new FoodModel();
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +73,6 @@ public class FoodModelIT {
         String result = instance.getType();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +85,6 @@ public class FoodModelIT {
         FoodModel instance = new FoodModel();
         instance.setType(type);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +98,6 @@ public class FoodModelIT {
         double result = instance.getPrice();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +110,6 @@ public class FoodModelIT {
         FoodModel instance = new FoodModel();
         instance.setPrice(price);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,7 +123,6 @@ public class FoodModelIT {
         int result = instance.getQuantity();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -142,7 +135,6 @@ public class FoodModelIT {
         FoodModel instance = new FoodModel();
         instance.setQuantity(quantity);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

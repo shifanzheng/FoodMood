@@ -48,7 +48,6 @@ public class EnterMoodControllerIT {
         EnterMoodController instance = null;
         instance.setMood(mood);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +60,6 @@ public class EnterMoodControllerIT {
         EnterMoodController instance = null;
         instance.updateView(view);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,7 +71,6 @@ public class EnterMoodControllerIT {
         EnterMoodController instance = null;
         instance.initializeNutrition();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,7 +82,6 @@ public class EnterMoodControllerIT {
         EnterMoodController instance = null;
         instance.intializePersonal();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

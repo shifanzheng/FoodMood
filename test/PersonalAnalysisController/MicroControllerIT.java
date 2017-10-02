@@ -49,7 +49,6 @@ public class MicroControllerIT {
         int result = instance.getTime();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -62,7 +61,6 @@ public class MicroControllerIT {
         MicroController instance = null;
         instance.setTime(time);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +73,6 @@ public class MicroControllerIT {
         MicroController instance = null;
         instance.updateView(view);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

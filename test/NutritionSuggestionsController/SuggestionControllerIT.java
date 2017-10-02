@@ -48,7 +48,6 @@ public class SuggestionControllerIT {
         SuggestionController instance = null;
         instance.updateView(view);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,7 +59,6 @@ public class SuggestionControllerIT {
         SuggestionController instance = null;
         instance.suggestFood();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

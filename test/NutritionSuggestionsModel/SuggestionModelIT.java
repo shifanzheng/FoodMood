@@ -48,7 +48,6 @@ public class SuggestionModelIT {
         int result = instance.getCalories();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +60,6 @@ public class SuggestionModelIT {
         SuggestionModel instance = new SuggestionModel();
         instance.setCalories(calories);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +73,6 @@ public class SuggestionModelIT {
         int result = instance.getProtein();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +85,6 @@ public class SuggestionModelIT {
         SuggestionModel instance = new SuggestionModel();
         instance.setProtein(protein);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +98,6 @@ public class SuggestionModelIT {
         int result = instance.getSodium();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +110,6 @@ public class SuggestionModelIT {
         SuggestionModel instance = new SuggestionModel();
         instance.setSodium(sodium);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

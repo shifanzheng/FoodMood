@@ -2,25 +2,33 @@
  */
 package MoodView;
 
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import javax.swing.JFrame;
 
 /**
  *
  * @author Shifan
  */
-public class EnterMoodView extends JFrame{
+public class EnterMoodView{
     
+    Stage primaryStage = new Stage();
+    Scene scene;
     /**
      * Default constructor for EnterMoodView class.
      */
-    public EnterMoodView(){
-        
+    public EnterMoodView(Stage primaryStage){
+        this.primaryStage = primaryStage;
+        BorderPane root = new BorderPane();
+        scene = new Scene(root, 500, 700);
     }
     
     /**
      * Method to display the view.
      */
     public void displayView(){
-        this.setVisible(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

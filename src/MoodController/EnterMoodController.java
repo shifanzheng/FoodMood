@@ -10,6 +10,7 @@ import NutritionSuggestionsModel.SuggestionModel;
 import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
+import javafx.stage.Stage;
 
 /**
  *
@@ -24,9 +25,9 @@ public class EnterMoodController {
      * @param model
      * @param view
      */
-    public EnterMoodController(MoodModel model, EnterMoodView view){
+    public EnterMoodController(MoodModel model, EnterMoodView view, Stage primaryStage){
         this.model = new MoodModel();
-        this.view = new EnterMoodView();
+        this.view = new EnterMoodView(primaryStage);
     }
     
     /**
@@ -42,7 +43,7 @@ public class EnterMoodController {
      * Method to update the view.
      */
     public void updateView(EnterMoodView view){
-        view.setVisible(true);
+        //view.setVisible(true);
     }
     
     public void initializeNutrition(){

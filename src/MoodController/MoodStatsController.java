@@ -4,6 +4,7 @@ package MoodController;
 
 import MoodModel.MoodModel;
 import MoodView.MoodStatsView;
+import javafx.stage.Stage;
 
 /**
  *
@@ -11,14 +12,15 @@ import MoodView.MoodStatsView;
  */
 public class MoodStatsController {
 
-    private MoodModel model = new MoodModel();
-    private MoodStatsView view = new MoodStatsView();
+    private MoodModel model;
+    private MoodStatsView view;
 
     /**
      * Default constructor for MoodStatsController class.
      */
-    public MoodStatsController(MoodModel model, MoodStatsView view) {
-
+    public MoodStatsController(MoodModel model, MoodStatsView view, Stage primaryStage) {
+        model = new MoodModel();
+        view = new MoodStatsView(primaryStage);
     }
 
     /**

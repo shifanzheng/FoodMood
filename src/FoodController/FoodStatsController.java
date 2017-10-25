@@ -7,6 +7,7 @@ import FoodView.FoodStatsView;
 import MoodController.EnterMoodController;
 import MoodModel.MoodModel;
 import MoodView.EnterMoodView;
+import javafx.stage.Stage;
 
 /**
  *
@@ -14,8 +15,9 @@ import MoodView.EnterMoodView;
  */
 public class FoodStatsController {
 
-    private FoodModel model = new FoodModel();
-    private FoodStatsView view = new FoodStatsView();
+    Stage primaryStage;
+    private FoodModel model;
+    private FoodStatsView view;
 
     /**
      * Default constructor for FoodStatsController class
@@ -23,8 +25,10 @@ public class FoodStatsController {
      * @param model
      * @param view
      */
-    public FoodStatsController(FoodModel model, FoodStatsView view) {
-
+    public FoodStatsController(FoodModel model, FoodStatsView view, Stage primaryStage) {
+        this.primaryStage = new Stage();
+        model = new FoodModel();
+        view = new FoodStatsView(primaryStage);
     }
 
     /**

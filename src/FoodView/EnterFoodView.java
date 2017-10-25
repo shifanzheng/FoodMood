@@ -1,25 +1,39 @@
 
 package FoodView;
 
-import javax.swing.JFrame;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Shifan
  */
-public class EnterFoodView extends JFrame{
+public class EnterFoodView{
     
+    Stage primaryStage = new Stage();
+    Scene scene;
     /**
      * Default constructor for EnterFoodView Class
      */
-    public EnterFoodView(){
-        
+    public EnterFoodView(Stage primaryStage){
+        this.primaryStage = primaryStage;
+        BorderPane root = new BorderPane();
+        scene = new Scene(root, 500, 700);
     }
     
     /**
      * Method to display view
      */
     public void displayView() {
-        this.setVisible(true);
+        
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
     }
+    
+    public Scene getScene(){
+        return scene;
+    }
+    
 }

@@ -5,6 +5,7 @@ package FoodController;
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
 import FoodView.FoodStatsView;
+import javafx.stage.Stage;
 
 /**
  *
@@ -21,9 +22,9 @@ public class EnterFoodController {
      * @param model
      * @param view
      */
-    public EnterFoodController(FoodModel model, EnterFoodView view) {
+    public EnterFoodController(FoodModel model, EnterFoodView view, Stage primaryStage) {
         EnterFoodController.model = new FoodModel();
-        EnterFoodController.view = new EnterFoodView();
+        EnterFoodController.view = new EnterFoodView(primaryStage);
     }
 
     /**
@@ -38,13 +39,13 @@ public class EnterFoodController {
      * Method to update view
      */
     public void updateView(EnterFoodView view) {
-        view.setVisible(true);
+        //view.setVisible(true);
     }
     
     public void initializeFoodStat(){
-        FoodStatsView statsview = new FoodStatsView();
-        FoodStatsController foodstatcntl = new FoodStatsController(model, statsview);
-        statsview.setVisible(true);
+        //FoodStatsView statsview = new FoodStatsView();
+        //FoodStatsController foodstatcntl = new FoodStatsController(model, statsview);
+        //statsview.setVisible(true);
     
     }
 }

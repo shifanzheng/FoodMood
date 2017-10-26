@@ -45,10 +45,10 @@ public class FoodStatsController {
     }
 
     public void initilizeMood() {
-        EnterMoodView moodView = new EnterMoodView();
-        MoodModel moodmodel = new MoodModel();
-        EnterMoodController moodCntl = new EnterMoodController(moodmodel, moodView);
-        moodView.displayView();
+        //EnterMoodView moodView = new EnterMoodView();
+        //MoodModel moodmodel = new MoodModel();
+        //EnterMoodController moodCntl = new EnterMoodController(moodmodel, moodView);
+        //moodView.displayView();
 
     }
 }

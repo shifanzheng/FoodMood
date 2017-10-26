@@ -48,16 +48,16 @@ public class EnterMoodController {
     
     public void initializeNutrition(){
     SuggestionModel sugModel = new SuggestionModel();
-    SuggestionView view = new SuggestionView(); 
-    SuggestionController sugCntl = new SuggestionController(sugModel, view);
+    //SuggestionView view = new SuggestionView(); 
+    //SuggestionController sugCntl = new SuggestionController(sugModel, view);
     view.displayView();
     }
     
     public void intializePersonal(){
     MicroModel micromodel = new MicroModel();
-    MicroView microview = new MicroView();
-    MicroController microcntl = new MicroController(micromodel,microview); 
-    microview.displayView();
+    //MicroView microview = new MicroView();
+    //MicroController microcntl = new MicroController(micromodel,microview); 
+    //microview.displayView();
     
     }
 }

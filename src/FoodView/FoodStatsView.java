@@ -4,7 +4,9 @@ package FoodView;
 
 import FoodModel.FoodModel;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
 
@@ -22,9 +24,16 @@ public class FoodStatsView extends JFrame{
      */
     
     public FoodStatsView(Stage primaryStage){
-        BorderPane root = new BorderPane();
-        scene = new Scene(root, 500, 700);
+        
         this.primaryStage = primaryStage;
+        
+        VBox layout = new VBox();
+        Label label = new Label("Food Stats View");
+        layout.getChildren().addAll(label);
+        
+        BorderPane root = new BorderPane(layout);
+        scene = new Scene(root, 500, 700);
+        
     }
     
     /**

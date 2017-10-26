@@ -4,6 +4,7 @@ package PersonalAnalysisController;
 
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
+import javafx.stage.Stage;
 
 /**
  *
@@ -11,14 +12,15 @@ import PersonalAnalysisView.MicroView;
  */
 public class MicroController {
 
-    private MicroModel model = new MicroModel();
-    private MicroView view = new MicroView();
+    private MicroModel model;
+    private MicroView view;
 
     /**
      * Default constructor for MicroController class
      */
-    public MicroController(MicroModel model, MicroView view) {
-
+    public MicroController(MicroModel model, MicroView view, Stage primaryStage) {
+        model = new MicroModel();
+        view = new MicroView(primaryStage);
     }
 
     /**
@@ -36,6 +38,6 @@ public class MicroController {
     }
 
     public void updateView(MicroView view) {
-        view.setVisible(true);
+        //view.setVisible(true);
     }
 }

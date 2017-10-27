@@ -53,8 +53,11 @@ public class FoodMood extends Application{
             I held off on the navigation tabs since I have a few questions about how we should structure the program.
             But for now, the skeleton of the project is ready.
         */
-        enterFood();
-        
+//        enterFood();
+        startApp();
+    }
+    public void startApp(){
+        LoginScreen lgs = new LoginScreen();
     }
     
     public void enterFood(){

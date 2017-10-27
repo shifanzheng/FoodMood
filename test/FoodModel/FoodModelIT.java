@@ -44,7 +44,7 @@ public class FoodModelIT {
     public void testGetName() {
         System.out.println("getName");
         FoodModel instance = new FoodModel();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

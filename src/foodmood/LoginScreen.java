@@ -26,6 +26,9 @@ public class LoginScreen {
     
     public LoginScreen() {
         Stage primaryStage = new Stage();
+        
+        //System.out.println(FoodMood.getSceneList().size());
+        
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -58,6 +61,9 @@ public class LoginScreen {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        //THIS IS HOW YOU SWITCH SCENES
+        //primaryStage.setScene((Scene) FoodMood.getSceneList().get(3));
 
         bt.setOnAction(new EventHandler<ActionEvent>() {
             

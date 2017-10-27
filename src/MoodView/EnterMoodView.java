@@ -2,12 +2,14 @@
  */
 package MoodView;
 
+import foodmood.FoodMood;
+import foodmood.TabbedView;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javax.swing.JFrame;
 
 /**
  *
@@ -16,6 +18,7 @@ import javax.swing.JFrame;
 public class EnterMoodView{
     
     Stage primaryStage = new Stage();
+    ToolBar toolBar;
     Scene scene;
     /**
      * Default constructor for EnterMoodView class.
@@ -28,6 +31,10 @@ public class EnterMoodView{
         layout.getChildren().addAll(label);
         
         BorderPane root = new BorderPane(layout);
+        
+        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        root.setTop(tabbedView.toolBar(primaryStage));
+        
         scene = new Scene(root, 500, 700);
     }
     
@@ -38,4 +45,17 @@ public class EnterMoodView{
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
+    public Scene getScene(){
+        return scene;
+    }
+    
+    public static String getSceneName(){
+        return "Enter Mood";
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        this.toolBar = toolBar;
+    }
+    
 }

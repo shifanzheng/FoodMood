@@ -2,9 +2,11 @@
  */
 package FoodView;
 
-import FoodModel.FoodModel;
+import foodmood.FoodMood;
+import foodmood.TabbedView;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,6 +20,7 @@ public class FoodStatsView extends JFrame{
 
     
     Stage primaryStage;
+    ToolBar toolBar;
     Scene scene;
     /**
      * Default constructor for FoodStatView class
@@ -32,6 +35,10 @@ public class FoodStatsView extends JFrame{
         layout.getChildren().addAll(label);
         
         BorderPane root = new BorderPane(layout);
+        
+        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        root.setTop(tabbedView.toolBar(primaryStage));
+        
         scene = new Scene(root, 500, 700);
         
     }
@@ -45,4 +52,17 @@ public class FoodStatsView extends JFrame{
         primaryStage.show();
         
     }
+    
+    public Scene getScene(){
+        return scene;
+    }
+    
+    public static String getSceneName(){
+        return "Food Stats";
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        this.toolBar = toolBar;
+    }
+    
 }

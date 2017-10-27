@@ -2,8 +2,11 @@
  */
 package PersonalAnalysisView;
 
+import foodmood.FoodMood;
+import foodmood.TabbedView;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -15,6 +18,7 @@ import javafx.stage.Stage;
 public class MicroView{
     
     private Stage primaryStage;
+    ToolBar toolBar;
     private Scene scene;
     /**
      * Default constructor for MicroView class.
@@ -27,6 +31,10 @@ public class MicroView{
         layout.getChildren().addAll(label);
         
         BorderPane root = new BorderPane(layout);
+        
+        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        root.setTop(tabbedView.toolBar(primaryStage));
+        
         scene = new Scene(root, 500, 700);
     }
     
@@ -37,4 +45,17 @@ public class MicroView{
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
+    public Scene getScene(){
+        return scene;
+    }
+    
+    public static String getSceneName(){
+        return "Analysis";
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        this.toolBar = toolBar;
+    }
+    
 }

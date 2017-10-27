@@ -18,11 +18,11 @@ import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
 
@@ -36,6 +36,13 @@ public class FoodMood extends Application{
     Stage primaryStage = new Stage();
     ArrayList<Scene> sceneList;
     //ArrayList<Scene> sceneList;
+    
+    EnterFoodView view1;
+    FoodStatsView view2;
+    EnterMoodView view3;
+    MoodStatsView view4;
+    MicroView view5;
+    SuggestionView view6;
     
     
     public static Map<Scene, String> sceneMap = new HashMap<>();
@@ -78,7 +85,19 @@ public class FoodMood extends Application{
         
         //sceneList.addAll(sceneMap.values());
         
-        primaryStage.setScene(enterFood());
+        System.out.println(sceneMap.size());
+        
+        TabbedView tabbedView = new TabbedView(sceneMap);
+        ToolBar toolBar = tabbedView.toolBar(primaryStage);
+        
+        view1.setToolBar(toolBar);
+        view2.setToolBar(toolBar);
+        view3.setToolBar(toolBar);
+        view4.setToolBar(toolBar);
+        view5.setToolBar(toolBar);
+        view6.setToolBar(toolBar);
+        
+        primaryStage.setScene(view6.getScene());
         primaryStage.show();
         
         //TabbedView tabbedView = new TabbedView(primaryStage);
@@ -109,44 +128,44 @@ public class FoodMood extends Application{
     
     private Scene enterFood(){
         FoodModel model = new FoodModel();
-        EnterFoodView view = new EnterFoodView(primaryStage);
-        EnterFoodController foodcntl = new EnterFoodController(model, view, primaryStage);
-        return view.getScene();
+        view1 = new EnterFoodView(primaryStage);
+        EnterFoodController foodcntl = new EnterFoodController(model, view1, primaryStage);
+        return view1.getScene();
     }
     
     private Scene foodStats(){
         FoodModel model = new FoodModel();
-        FoodStatsView view = new FoodStatsView(primaryStage);
-        FoodStatsController foodStatsController = new FoodStatsController(model, view, primaryStage);
-        return view.getScene();
+        view2 = new FoodStatsView(primaryStage);
+        FoodStatsController foodStatsController = new FoodStatsController(model, view2, primaryStage);
+        return view2.getScene();
     }
     
     private Scene enterMood(){
         MoodModel model = new MoodModel();
-        EnterMoodView view = new EnterMoodView(primaryStage);
-        EnterMoodController foodStatsController = new EnterMoodController(model, view, primaryStage);
-        return view.getScene();
+        view3 = new EnterMoodView(primaryStage);
+        EnterMoodController foodStatsController = new EnterMoodController(model, view3, primaryStage);
+        return view3.getScene();
     }
     
     private Scene moodStats(){
         MoodModel model = new MoodModel();
-        MoodStatsView view = new MoodStatsView(primaryStage);
-        MoodStatsController foodStatsController = new MoodStatsController(model, view, primaryStage);
-        return view.getScene();
+        view4 = new MoodStatsView(primaryStage);
+        MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
+        return view4.getScene();
     }
     
     private Scene analysis(){
         MicroModel model = new MicroModel();
-        MicroView view = new MicroView(primaryStage);
-        MicroController foodStatsController = new MicroController(model, view, primaryStage);
-        return view.getScene();
+        view5 = new MicroView(primaryStage);
+        MicroController foodStatsController = new MicroController(model, view5, primaryStage);
+        return view5.getScene();
     }
     
     private Scene suggestion(){
         SuggestionModel model = new SuggestionModel();
-        SuggestionView view = new SuggestionView(primaryStage);
-        SuggestionController foodStatsController = new SuggestionController(model, view, primaryStage);
-        return view.getScene();
+        view6 = new SuggestionView(primaryStage);
+        SuggestionController foodStatsController = new SuggestionController(model, view6, primaryStage);
+        return view6.getScene();
     }
     
     //SCENE MAP CONSTRUCTION

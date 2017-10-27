@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class TabbedView {
     
-    private Map sceneMap;
+    Map sceneMap;
     
     public TabbedView(Map map){
         this.sceneMap = map;
@@ -34,7 +34,9 @@ public class TabbedView {
 
         ToolBar toolBar = new ToolBar();
 
-        Iterator it = FoodMood.getSceneMap().entrySet().iterator();
+        System.out.println(sceneMap.size() + " from tabbed view");
+        
+        Iterator it = sceneMap.entrySet().iterator();
         while (it.hasNext()) {
 
             Map.Entry pair = (Map.Entry) it.next();

@@ -22,6 +22,7 @@ public class FoodStatsView extends JFrame{
     Stage primaryStage;
     ToolBar toolBar;
     Scene scene;
+    BorderPane root;
     /**
      * Default constructor for FoodStatView class
      */
@@ -34,10 +35,10 @@ public class FoodStatsView extends JFrame{
         Label label = new Label("Food Stats View");
         layout.getChildren().addAll(label);
         
-        BorderPane root = new BorderPane(layout);
+        root = new BorderPane(layout);
         
-        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        root.setTop(tabbedView.toolBar(primaryStage));
+        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        //root.setTop(toolBar);
         
         scene = new Scene(root, 500, 700);
         
@@ -63,6 +64,7 @@ public class FoodStatsView extends JFrame{
     
     public void setToolBar(ToolBar toolBar){
         this.toolBar = toolBar;
+        root.setTop(toolBar);
     }
     
 }

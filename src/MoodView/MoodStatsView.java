@@ -20,6 +20,7 @@ public class MoodStatsView{
     Stage primaryStage = new Stage();
     ToolBar toolBar;
     Scene scene;
+    BorderPane root;
     /**
      * Default constructor for MoodStatView class.
      */
@@ -30,10 +31,10 @@ public class MoodStatsView{
         Label label = new Label("Mood Stats View");
         layout.getChildren().addAll(label);
         
-        BorderPane root = new BorderPane(layout);
+        root = new BorderPane(layout);
         
-        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        root.setTop(tabbedView.toolBar(primaryStage));
+        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        //root.setTop(toolBar);
         
         scene = new Scene(root, 500, 700);
     }
@@ -56,6 +57,7 @@ public class MoodStatsView{
     
     public void setToolBar(ToolBar toolBar){
         this.toolBar = toolBar;
+        root.setTop(toolBar);
     }
     
 }

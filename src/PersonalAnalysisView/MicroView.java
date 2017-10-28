@@ -20,6 +20,7 @@ public class MicroView{
     private Stage primaryStage;
     ToolBar toolBar;
     private Scene scene;
+    BorderPane root;
     /**
      * Default constructor for MicroView class.
      */
@@ -30,10 +31,10 @@ public class MicroView{
         Label label = new Label("Analysis View");
         layout.getChildren().addAll(label);
         
-        BorderPane root = new BorderPane(layout);
+        root = new BorderPane(layout);
         
-        TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        root.setTop(tabbedView.toolBar(primaryStage));
+        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
+        //root.setTop(toolBar);
         
         scene = new Scene(root, 500, 700);
     }
@@ -56,6 +57,7 @@ public class MicroView{
     
     public void setToolBar(ToolBar toolBar){
         this.toolBar = toolBar;
+        root.setTop(toolBar);
     }
     
 }

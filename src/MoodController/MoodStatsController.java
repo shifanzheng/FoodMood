@@ -19,7 +19,7 @@ public class MoodStatsController {
      * Default constructor for MoodStatsController class.
      */
     public MoodStatsController(MoodModel model, MoodStatsView view, Stage primaryStage) {
-        model = new MoodModel();
+       // model = new ModelModel();
         view = new MoodStatsView(primaryStage);
     }
 

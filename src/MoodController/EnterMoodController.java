@@ -26,7 +26,7 @@ public class EnterMoodController {
      * @param view
      */
     public EnterMoodController(MoodModel model, EnterMoodView view, Stage primaryStage){
-        this.model = new MoodModel();
+       // this.model;
         this.view = new EnterMoodView(primaryStage);
     }
     
@@ -35,7 +35,7 @@ public class EnterMoodController {
      * @param mood
      */
     public void setMood(String mood){
-        model.setMood(mood);
+      //  model.setMood(mood);
     }
     
     

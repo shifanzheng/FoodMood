@@ -179,14 +179,14 @@ public class FoodMood extends Application {
     }
 
     private EnterMoodView enterMood() {
-        MoodModel model = new MoodModel();
+        MoodModel model = new MoodModel("test","test",0);
         view3 = new EnterMoodView(primaryStage);
         EnterMoodController foodStatsController = new EnterMoodController(model, view3, primaryStage);
         return view3;
     }
 
     private MoodStatsView moodStats() {
-        MoodModel model = new MoodModel();
+        MoodModel model = new MoodModel("test","test",0);
         view4 = new MoodStatsView(primaryStage);
         MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
         return view4;

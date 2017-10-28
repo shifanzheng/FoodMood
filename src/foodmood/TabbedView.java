@@ -65,7 +65,6 @@ public class TabbedView {
         button6.setOnAction(e -> primaryStage.setScene(view6.getScene()));
         
         
-        
         //Label label = new Label("Hello");
         
         toolBar.getItems().addAll(button1, button2, button3, button4, button5, button6);

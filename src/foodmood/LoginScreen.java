@@ -22,20 +22,15 @@ import javafx.stage.Stage;
  */
 public class LoginScreen {
 
-//    HomeScreen hs = new HomeScreen();
+    Scene scene;
     
-    public LoginScreen() {
-        Stage primaryStage = new Stage();
-        
-        //System.out.println(FoodMood.getSceneList().size());
-        
-
+    public LoginScreen(Stage primaryStage) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(30);
         grid.setVgap(25);
 
-        Scene scene = new Scene(grid, 500, 700);
+        scene = new Scene(grid, 500, 700);
 
         Text welcomeMessage = new Text("Welcome to Food Mood");
         welcomeMessage.setFont(Font.font("Calibri", 30));
@@ -61,29 +56,26 @@ public class LoginScreen {
 
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        //THIS IS HOW YOU SWITCH SCENES
-        //primaryStage.setScene((Scene) FoodMood.getSceneList().get(3));
 
+        
+        
         bt.setOnAction(new EventHandler<ActionEvent>() {
-            
-            //Commented out to skip the hassle of logging in each time
-//            @Override
-//            public void handle(ActionEvent e) {
-//                if (userTextField.getText().equals("admin") && passwordTextField.getText().equals("password")) {
-//                    primaryStage.close();
-//                    HomeScreen hs = new HomeScreen();
-//                } else {
-//                    errorMessage.setFill(Color.RED);
-//                    errorMessage.setText("Incorrect Username or Password");
-//                }
-//            }
-            
+
             @Override
             public void handle(ActionEvent e) {
-                    HomeScreen hs = new HomeScreen();
-                    primaryStage.close();
+//                if (userTextField.getText().equals("admin") && passwordTextField.getText().equals("password")) {
+                  if(true){
+                    HomeScreen hs = new HomeScreen(primaryStage);
+                } else {
+                    errorMessage.setFill(Color.RED);
+                    errorMessage.setText("Incorrect Username or Password");
+                }
             }
+
         });
+    }
+
+    public Scene getScene() {
+        return scene;
     }
 }

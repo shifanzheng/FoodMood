@@ -13,7 +13,7 @@ import java.util.Iterator;
  * @author Noel Sterling Jr
  */
 public class MoodFats implements MoodIterator{
-    MoodModel[] bestSongs;
+    MoodModel[] fatsGrams;
 	
 	// Used to increment to the next position in the array
 	
@@ -21,21 +21,21 @@ public class MoodFats implements MoodIterator{
 	
 	public MoodFats() {
 		
-		bestSongs = new MoodModel[3];
+		fatsGrams = new MoodModel[3];
 		
 		addMood("Cheese Burger", "Tired", 300);
-		addMood("Brocolli", "Energetic", 50);
-		addMood("Bacon", "Moody", 205);
+		addMood("Brocolli", "Energetic", 0);
+		addMood("Bacon", "Moody", 250);
 		
 	}
 	
-	// Add a SongInfo Object to the array and increment to the next position
+	// Add a mood Object to the array and increment to the next position
 	
-	public void addMood(String songName, String bandName, int yearReleased){
+	public void addMood(String foodName, String mood, int fats){
 		
-		MoodModel moodInfo = new MoodModel(songName, bandName, yearReleased);
+		MoodModel moodInfo = new MoodModel(foodName, mood, fats);
 			
-		bestSongs[arrayValue] = moodInfo;
+		fatsGrams[arrayValue] = moodInfo;
 		
 		arrayValue++;
 		
@@ -43,9 +43,9 @@ public class MoodFats implements MoodIterator{
 	
 	// This is replaced by the Iterator
 	
-	public MoodModel[] getBestFats(){
+	public MoodModel[] getMoodFromFats(){
 		
-		return bestSongs;
+		return fatsGrams;
 		
 	}
 
@@ -55,7 +55,7 @@ public class MoodFats implements MoodIterator{
 	@Override
 	public Iterator createIterator() {
 		// TODO Auto-generated method stub
-		return Arrays.asList(bestSongs).iterator();	
+		return Arrays.asList(fatsGrams).iterator();	
 	}
     
 }

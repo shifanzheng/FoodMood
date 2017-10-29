@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 public class MoodCalories implements MoodIterator{
 	
-	// ArrayList holds SongInfo objects
+	// ArrayList holds objects
 	
 	ArrayList<MoodModel> moodFromCalories;
 	
@@ -30,7 +30,7 @@ public class MoodCalories implements MoodIterator{
 		
 	}
 	
-	// Add a SongInfo object to the end of the ArrayList
+	// Add a moodFromCalories object object to the end of the ArrayList
 	
 	public void addMood(String foodName, String mood, int calories){
 		
@@ -41,10 +41,9 @@ public class MoodCalories implements MoodIterator{
 	}
 	
 	
-	// Get rid of this
-	// Return the ArrayList filled with SongInfo Objects
+	// Return the ArrayList filled with mood Objects
 	
-	public ArrayList<MoodModel> getBestCalories(){
+	public ArrayList<MoodModel> getCaloriesFromMood(){
             return null;
            
 		
@@ -52,17 +51,15 @@ public class MoodCalories implements MoodIterator{
 		
 	}
         
-        public ArrayList<MoodModel> getWorstCalories(){
+       /* public ArrayList<MoodModel> getWorstCalories(){
             return null;
         
         
-        }
+        }*/
 
-	// NEW By adding this method I'll be able to treat all
-	// collections the same
-	
+	// By adding this method well be able to treat all collections the same
 	public Iterator createIterator() {
-		// TODO Auto-generated method stub
+		
 		return moodFromCalories.iterator();
 	}
 	

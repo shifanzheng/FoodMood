@@ -29,13 +29,13 @@ public class MoodSystem {
 	MoodSodium sodium;
 	MoodFats fats;
 	
-	// NEW Passing in song iterators
+	// NEW Passing in mood iterators
 	
 	MoodIterator iterCalories;
 	MoodIterator iterSodium;
 	MoodIterator iterFats;
 	
-	// NEW WAY Initialize the iterators	
+	//CONSTRUCTOR Initialize the iterators	
 	
 	public MoodSystem(MoodIterator newCalories, MoodIterator newSodium, MoodIterator newFats) {
 		
@@ -45,87 +45,81 @@ public class MoodSystem {
 		
 	}
 	
-	public void showTheSongs(){
+	public void showMoods(){
 		
-		// Because the SongInfo Objects are stored in different
-		// collections everything must be handled on an individual
-		// basis. This is BAD!
+		ArrayList caloriesList = calories.getCaloriesFromMood();
 		
-		ArrayList aL70sSongs = calories.getBestCalories();
+		System.out.println("Calories\n");
 		
-		System.out.println("Songs of the 70s\n");
-		
-		for(int i=0; i < aL70sSongs.size(); i++){
+		for(int i=0; i < caloriesList.size(); i++){
 			
-			MoodModel bestSongs = (MoodModel) aL70sSongs.get(i);
+			MoodModel moodInfo = (MoodModel) caloriesList.get(i);
 			
-			System.out.println(bestSongs.getMood());
-			System.out.println(bestSongs.getFood());
-			System.out.println(bestSongs.getMoodEffect() + "\n");
+			System.out.println(moodInfo.getMood());
+			System.out.println(moodInfo.getFood());
+			System.out.println(moodInfo.getMoodEffect() + "\n");
 			
 		}
 		
-		MoodModel[] array80sSongs = fats.getBestFats();
+		MoodModel[] fatsArray = fats.getMoodFromFats();
 		
-		System.out.println("Songs of the 80s\n");
+		System.out.println("Fats Percentage\n");
 		
-		for(int j=0; j < array80sSongs.length; j++){
+		for(int j=0; j < fatsArray.length; j++){
 			
-			MoodModel bestSongs = array80sSongs[j];
+			MoodModel moodInfo = fatsArray[j];
 			
-			System.out.println(bestSongs.getMood());
-			System.out.println(bestSongs.getFood());
-			System.out.println(bestSongs.getMoodEffect() + "\n");
+			System.out.println(moodInfo.getMood());
+			System.out.println(moodInfo.getFood());
+			System.out.println(moodInfo.getMoodEffect() + "\n");
 			
 		}
 		
-		Hashtable<Integer, MoodModel> ht90sSongs = sodium.getBestSongs();
+		Hashtable<Integer, MoodModel> sodiumContent = sodium.getMoodFromSodium();
 		
-		System.out.println("Songs of the 90s\n");
+		System.out.println("Grams of Sodium \n");
 		
-		for (Enumeration<Integer> e = ht90sSongs.keys(); e.hasMoreElements();)
+		for (Enumeration<Integer> e = sodiumContent.keys(); e.hasMoreElements();)
 	    {
-			MoodModel bestSongs = ht90sSongs.get(e.nextElement());
+			MoodModel moodInfo = sodiumContent.get(e.nextElement());
 			
-			System.out.println(bestSongs.getFood());
-			System.out.println(bestSongs.getMood());
-			System.out.println(bestSongs.getMoodEffect() + "\n");
+			System.out.println(moodInfo.getFood());
+			System.out.println(moodInfo.getMood());
+			System.out.println(moodInfo.getMoodEffect() + "\n");
 			
 	    }
 		
 	}
 	
-	// Now that I can treat everything as an Iterator it cleans up
-	// the code while allowing me to treat all collections as 1
-	
-	public void showTheSongs2(){
+	// Now that I can treat everything as an Iterator it cleans up the code while allowing me to treat all collections the same
+	public void showMood2(){
 		
-		System.out.println("NEW WAY WITH ITERATOR\n");
+		System.out.println("Iterator Design Method\n");
 		
-		Iterator Songs70s = iterCalories.createIterator();
-		Iterator Songs80s = iterSodium.createIterator();
-		Iterator Songs90s = iterFats.createIterator();
+		Iterator cal = iterCalories.createIterator();
+		Iterator sod = iterSodium.createIterator();
+		Iterator fats = iterFats.createIterator();
 		
-		System.out.println("Songs of the 70s\n");
-		printTheSongs(Songs70s);
+		System.out.println("Calories\n");
+		printMood(cal);
 		
-		System.out.println("Songs of the 80s\n");
-		printTheSongs(Songs80s);
+		System.out.println("Grams of Sodium \n");
+		printMood(sod);
 		
-		System.out.println("Songs of the 90s\n");
-		printTheSongs(Songs90s);
+		System.out.println("Fats Percentage\n");
+		printMood(fats);
 		
 	}
 	
-	public void printTheSongs(Iterator iterator){
+	public void printMood(Iterator iterator){
 		
 		while(iterator.hasNext()){
 			
-			MoodModel songInfo = (MoodModel) iterator.next();
+			MoodModel moodInfo = (MoodModel) iterator.next();
 			
-			System.out.println(songInfo.getFood());
-			System.out.println(songInfo.getMood());
-			System.out.println(songInfo.getMoodEffect() + "\n");
+			System.out.println(moodInfo.getFood());
+			System.out.println(moodInfo.getMood());
+			System.out.println(moodInfo.getMoodEffect() + "\n");
 			
 		}
 		

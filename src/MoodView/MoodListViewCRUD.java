@@ -38,9 +38,9 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
-public class MoodListView {
+public class MoodListViewCRUD {
     
-    public MoodListView(){
+    public MoodListViewCRUD(){
         
         // create JFrame and JTable
         JFrame frame = new JFrame();
@@ -71,11 +71,11 @@ public class MoodListView {
         JButton btnUpdate = new JButton("Update");  
         JButton back = new JButton("Back");
         
-        JLabel user = new JLabel("Enter Your Mood");
-        JLabel pass = new JLabel("Enter Your Food");
-        JLabel email = new JLabel("Enter the amount of Calories");
-        JLabel url = new JLabel("Enter amount sodium content");
-        JLabel ins = new JLabel("Enter the amount of Fats");
+        JLabel moodLabel = new JLabel("Enter Your Mood");
+        JLabel foodLabel = new JLabel("Enter Your Food");
+        JLabel calLabel = new JLabel("Enter the amount of Calories");
+        JLabel sodLabel = new JLabel("Enter amount sodium content");
+        JLabel fatsLabel = new JLabel("Enter the amount of Fats");
         
         mood.setBounds(120, 220, 100, 25);
         food.setBounds(120, 250, 100, 25);
@@ -88,11 +88,11 @@ public class MoodListView {
         btnDelete.setBounds(260, 310, 100, 25);
         back.setBounds(260, 350, 100, 25);
         
-        user.setBounds(15, 220, 105, 25);
-        pass.setBounds(15, 250, 105, 25);
-        email.setBounds(15, 280, 105, 25);
-        url.setBounds(15, 310, 105, 25);
-        ins.setBounds(15, 380, 300, 25);
+        moodLabel.setBounds(15, 220, 105, 25);
+        foodLabel.setBounds(15, 250, 105, 25);
+        calLabel.setBounds(15, 280, 105, 25);
+        sodLabel.setBounds(15, 310, 105, 25);
+        fatsLabel.setBounds(15, 380, 300, 25);
         
         JScrollPane pane = new JScrollPane(table);
         pane.setBounds(0, 0, 880, 200);
@@ -112,11 +112,11 @@ public class MoodListView {
         frame.add(btnUpdate);
         frame.add(back);
         
-        frame.add(user);
-        frame.add(pass);
-        frame.add(email);
-        frame.add(url);
-        frame.add(ins);
+        frame.add(moodLabel);
+        frame.add(foodLabel);
+        frame.add(calLabel);
+        frame.add(sodLabel);
+        frame.add(fatsLabel);
         
         // create an array of objects to set the row data
         Object[] row = new Object[5];
@@ -127,7 +127,7 @@ public class MoodListView {
             @Override
             
             public void actionPerformed(ActionEvent e) {
-             File file = new File("newuser.txt");
+
                 row[0] = mood.getText();
                 row[1] = food.getText();
                 row[2] = calories.getText();

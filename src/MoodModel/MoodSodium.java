@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class MoodSodium implements MoodIterator{
 	
-	// Create a Hashtable with an int as a key and SongInfo
+	// Create a Hashtable with an int as a key and moodInfo
 	// Objects 
 	
 	Hashtable<Integer, MoodModel> moodFromSodium = new Hashtable<Integer, MoodModel>();
@@ -25,18 +25,18 @@ public class MoodSodium implements MoodIterator{
 	
 	public MoodSodium() {
 		
-		addMood("Cheese Burger", "Tired", 300);
-		addMood("Brocolli", "Energetic", 60);
-		addMood("Bacon", "Moody", 200);
+		addMood("Cheese Burger", "Tired", 150);
+		addMood("Brocolli", "Energetic", 0);
+		addMood("Bacon", "Moody", 120);
 		
 	}
 	
-	// Add a new SongInfo Object to the Hashtable and then increment
+	// Add a new mood Object to the Hashtable and then increment
 	// the Hashtable key
 	
-	public void addMood(String foodName, String mood, int calories){
+	public void addMood(String foodName, String mood, int sodiumGrams){
 		
-		MoodModel moodInfo = new MoodModel(foodName, mood, calories);
+		MoodModel moodInfo = new MoodModel(foodName, mood, sodiumGrams);
 		
 		moodFromSodium.put(hashKey, moodInfo);
 		
@@ -45,16 +45,15 @@ public class MoodSodium implements MoodIterator{
 	}
 	
 	// This is replaced by the Iterator
-	// Return a Hashtable full of SongInfo Objects
+	// Return a Hashtable full of moodSoidum Objects
 	
-	public Hashtable<Integer, MoodModel> getBestSongs(){
+	public Hashtable<Integer, MoodModel> getMoodFromSodium(){
 		
 		return moodFromSodium;
 		
 	}
 
-	// NEW By adding this method I'll be able to treat all
-	// collections the same
+	// NEW By adding this method I'll be able to treat the collections the same
 	
 	public Iterator createIterator() {
 		// TODO Auto-generated method stub

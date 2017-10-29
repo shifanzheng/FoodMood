@@ -11,6 +11,7 @@ import MoodView.EnterMoodView;
 import MoodView.MoodStatsView;
 import NutritionSuggestionView.SuggestionView;
 import PersonalAnalysisView.MicroView;
+import static foodmood.FoodMood.view1;
 import java.util.Iterator;
 import java.util.Map;
 import javafx.scene.Scene;
@@ -37,32 +38,54 @@ public class TabbedView {
 
         ToolBar toolBar = new ToolBar();
 
-        System.out.println(sceneMap.size() + " from tabbed view");
-        
-        
         Button button1 = new Button();
+        button1.setFocusTraversable(false);
         button1.setText("Enter Food");
-        button1.setOnAction(e -> primaryStage.setScene(view1.getScene()));
-        
+        button1.setOnAction(e -> {
+            primaryStage.setScene(view1.getScene());
+            //view1.setToolBar(toolBar);
+            //System.out.println("asdfasdf");
+        });
+
         Button button2 = new Button();
-        button2.setText("Enter Food");
-        button2.setOnAction(e -> primaryStage.setScene(view2.getScene()));
-        
+        button2.setFocusTraversable(false);
+        button2.setText("Food Stats");
+        button2.setOnAction(e -> {
+            primaryStage.setScene(view2.getScene());
+            //view2.setToolBar(toolBar);
+        });
+
         Button button3 = new Button();
-        button3.setText("Enter Food");
-        button3.setOnAction(e -> primaryStage.setScene(view3.getScene()));
-        
+        button3.setFocusTraversable(false);
+        button3.setText("Enter Mood");
+        button3.setOnAction(e -> {
+            primaryStage.setScene(view3.getScene());
+            //view3.setToolBar(toolBar);
+        });
+
         Button button4 = new Button();
-        button4.setText("Enter Food");
-        button4.setOnAction(e -> primaryStage.setScene(view4.getScene()));
-        
+        button4.setFocusTraversable(false);
+        button4.setText("Mood Stats");
+        button4.setOnAction(e -> {
+            primaryStage.setScene(view4.getScene());
+            //view4.setToolBar(toolBar);
+        });
+
         Button button5 = new Button();
-        button5.setText("Enter Food");
-        button5.setOnAction(e -> primaryStage.setScene(view5.getScene()));
-        
+        button5.setFocusTraversable(false);
+        button5.setText("Analysis");
+        button5.setOnAction(e -> {
+            primaryStage.setScene(view5.getScene());
+            //view5.setToolBar(toolBar);
+        });
+
         Button button6 = new Button();
-        button6.setText("Enter Food");
-        button6.setOnAction(e -> primaryStage.setScene(view6.getScene()));
+        button6.setFocusTraversable(false);
+        button6.setText("Suggestions");
+        button6.setOnAction(e -> {
+            primaryStage.setScene(view6.getScene());
+            //view6.setToolBar(toolBar);
+        });
         
         
         //Label label = new Label("Hello");

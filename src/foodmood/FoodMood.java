@@ -73,7 +73,7 @@ public class FoodMood extends Application {
             I held off on the navigation tabs since I have a few questions about how we should structure the program.
             But for now, the skeleton of the project is ready.
          */
-        LoginScreen lgs = new LoginScreen(primaryStage);
+        
         
 
         //TabbedView tabbedView = new TabbedView(sceneMap);
@@ -91,7 +91,6 @@ public class FoodMood extends Application {
         button1.setOnAction(e -> {
             primaryStage.setScene(view1.getScene());
             view1.setToolBar(toolBar2);
-            System.out.println("asdfasdf");
         });
 
         Button button2 = new Button();
@@ -143,6 +142,8 @@ public class FoodMood extends Application {
         view4.setToolBar(toolBar2);
         view5.setToolBar(toolBar2);
         view6.setToolBar(toolBar2);
+        
+        LoginScreen lgs = new LoginScreen(primaryStage, view6);
 
 
         //TabbedView tabbedView = new TabbedView(primaryStage);

@@ -2,6 +2,7 @@
  */
 package foodmood;
 
+import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -24,7 +25,7 @@ public class UserProfile {
     public static String currentMood = "N/A";
 
 //    Scene scene;
-    public UserProfile(Stage primaryStage, SuggestionView view6) {
+    public UserProfile(Stage primaryStage, EnterFoodView view1) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
@@ -64,7 +65,7 @@ public class UserProfile {
             password = passwordTextField.getText();
             favoriteFood = foodTextField.getText();
             currentMood = moodTextField.getText();
-            HomeScreen hs = new HomeScreen(primaryStage, view6);
+            HomeScreen hs = new HomeScreen(primaryStage, view1);
 
         });
 

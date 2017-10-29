@@ -2,6 +2,7 @@
  */
 package foodmood;
 
+import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 public class HomeScreen {
 
 
-    public HomeScreen(Stage primaryStage, SuggestionView view6) {
+    public HomeScreen(Stage primaryStage, EnterFoodView view1) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
@@ -50,15 +51,15 @@ public class HomeScreen {
         primaryStage.show();
 
         homeBt.setOnAction((ActionEvent e) -> {
-            LoginScreen lgs = new LoginScreen(primaryStage, view6);
+            LoginScreen lgs = new LoginScreen(primaryStage, view1);
         });
         
         editBt.setOnAction((ActionEvent e) -> {
-            UserProfile up = new UserProfile(primaryStage, view6);
+            UserProfile up = new UserProfile(primaryStage, view1);
         });
 
         tabViewBt.setOnAction((ActionEvent e) -> {
-            primaryStage.setScene(view6.getScene());
+            primaryStage.setScene(view1.getScene());
         });
     }
 }

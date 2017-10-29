@@ -2,6 +2,7 @@
  */
 package foodmood;
 
+import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -24,7 +25,7 @@ public class LoginScreen {
 
     private Scene scene;
 
-    public LoginScreen(Stage primaryStage, SuggestionView view6) {
+    public LoginScreen(Stage primaryStage, EnterFoodView view1) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(30);
@@ -64,7 +65,7 @@ public class LoginScreen {
                 errorMessage.setText("You did not enter a username or password");
             }
             else if (userTextField.getText().equals(UserProfile.userName) && passwordTextField.getText().equals(UserProfile.password)){
-                HomeScreen hs = new HomeScreen(primaryStage, view6);
+                HomeScreen hs = new HomeScreen(primaryStage, view1);
             }
             else {
                 errorMessage.setFill(Color.RED);
@@ -73,7 +74,7 @@ public class LoginScreen {
         });
 
         createAccountBt.setOnAction((ActionEvent e) -> {
-            UserProfile up = new UserProfile(primaryStage, view6);
+            UserProfile up = new UserProfile(primaryStage, view1);
         });
 
         primaryStage.setScene(scene);

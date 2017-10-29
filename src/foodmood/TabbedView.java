@@ -28,8 +28,8 @@ public class TabbedView {
     
     Map sceneMap;
     
-    public TabbedView(Map map){
-        this.sceneMap = map;
+    public TabbedView(){
+        
     }
     
     
@@ -43,7 +43,7 @@ public class TabbedView {
         button1.setText("Enter Food");
         button1.setOnAction(e -> {
             primaryStage.setScene(view1.getScene());
-            //view1.setToolBar(toolBar);
+            view1.setToolBar(toolBar);
             //System.out.println("asdfasdf");
         });
 
@@ -52,7 +52,7 @@ public class TabbedView {
         button2.setText("Food Stats");
         button2.setOnAction(e -> {
             primaryStage.setScene(view2.getScene());
-            //view2.setToolBar(toolBar);
+            view2.setToolBar(toolBar);
         });
 
         Button button3 = new Button();
@@ -60,7 +60,7 @@ public class TabbedView {
         button3.setText("Enter Mood");
         button3.setOnAction(e -> {
             primaryStage.setScene(view3.getScene());
-            //view3.setToolBar(toolBar);
+            view3.setToolBar(toolBar);
         });
 
         Button button4 = new Button();
@@ -68,7 +68,7 @@ public class TabbedView {
         button4.setText("Mood Stats");
         button4.setOnAction(e -> {
             primaryStage.setScene(view4.getScene());
-            //view4.setToolBar(toolBar);
+            view4.setToolBar(toolBar);
         });
 
         Button button5 = new Button();
@@ -76,7 +76,7 @@ public class TabbedView {
         button5.setText("Analysis");
         button5.setOnAction(e -> {
             primaryStage.setScene(view5.getScene());
-            //view5.setToolBar(toolBar);
+            view5.setToolBar(toolBar);
         });
 
         Button button6 = new Button();
@@ -84,7 +84,7 @@ public class TabbedView {
         button6.setText("Suggestions");
         button6.setOnAction(e -> {
             primaryStage.setScene(view6.getScene());
-            //view6.setToolBar(toolBar);
+            view6.setToolBar(toolBar);
         });
         
         

@@ -17,15 +17,13 @@ import javafx.stage.Stage;
  */
 public class HomeScreen {
 
-    Scene scene;
-//    Stage primaryStage = new Stage();
 
     public HomeScreen(Stage primaryStage) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
 
-        scene = new Scene(grid, 500, 700);
+        Scene scene = new Scene(grid, 500, 700);
 
         Label welcomeLabel = new Label("Welcome to the Home Screen");
         grid.add(welcomeLabel, 0, 0);
@@ -33,33 +31,28 @@ public class HomeScreen {
         Button homeBt = new Button();
         homeBt.setText("Return to Login");
         grid.add(homeBt, 0, 1);
+        
+        Button editBt = new Button();
+        editBt.setText("Edit Profile");
+        grid.add(editBt, 0, 2);
 
         Button tabViewBt = new Button();
         tabViewBt.setText("Go to tab view");
-        grid.add(tabViewBt, 0, 2);
+        grid.add(tabViewBt, 0, 3);
 
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        homeBt.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
-                LoginScreen lgs = new LoginScreen(primaryStage);
-
-            }
+        homeBt.setOnAction((ActionEvent e) -> {
+            LoginScreen lgs = new LoginScreen(primaryStage);
+        });
+        
+        editBt.setOnAction((ActionEvent e) -> {
+            UserProfile up = new UserProfile(primaryStage);
         });
 
-        tabViewBt.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
-                //code to go to tab view        
-            }
+        tabViewBt.setOnAction((ActionEvent e) -> {
+            //code to go to tab view
         });
-    }
-
-    public Scene getScene() {
-        return scene;
     }
 }

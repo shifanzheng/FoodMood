@@ -3,7 +3,6 @@
 package foodmood;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,8 +21,11 @@ import javafx.stage.Stage;
  */
 public class LoginScreen {
 
-    Scene scene;
-    
+    static String userName;
+    static String password;
+
+    private Scene scene;
+
     public LoginScreen(Stage primaryStage) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -36,46 +38,53 @@ public class LoginScreen {
         welcomeMessage.setFont(Font.font("Calibri", 30));
         grid.add(welcomeMessage, 0, 0, 2, 1);
 
-        Label username = new Label("Username:");
-        grid.add(username, 0, 1);
+        Label usernameLabel = new Label("Username:");
+        grid.add(usernameLabel, 0, 1);
 
         TextField userTextField = new TextField();
+
         grid.add(userTextField, 1, 1);
 
-        Label password = new Label("Password:");
-        grid.add(password, 0, 2);
+        Label passwordLabel = new Label("Password:");
+        grid.add(passwordLabel, 0, 2);
 
         PasswordField passwordTextField = new PasswordField();
         grid.add(passwordTextField, 1, 2);
+        passwordTextField.setText(password);
 
-        Button bt = new Button("Sign in");
-        grid.add(bt, 1, 4);
+        Button loginBt = new Button("Sign in");
+        grid.add(loginBt, 1, 4);
 
         final Text errorMessage = new Text();
-        grid.add(errorMessage, 1, 5);
+        grid.add(errorMessage, 1, 6);
+
+        Button createAccountBt = new Button("Create Account");
+        grid.add(createAccountBt, 1, 5);
+
+        loginBt.setOnAction((ActionEvent e) -> {
+            if (userTextField.getText() == null || passwordTextField.getText() == null) {
+                errorMessage.setFill(Color.RED);
+                errorMessage.setText("You did not enter a username or password");
+            }
+            else if (userTextField.getText().equals(userName) && passwordTextField.getText().equals(password)){
+                HomeScreen hs = new HomeScreen(primaryStage);
+            }
+            else {
+                errorMessage.setFill(Color.RED);
+                errorMessage.setText("Incorrect Username or Password");
+            }
+        });
+
+        createAccountBt.setOnAction((ActionEvent e) -> {
+            CreateAccount ca = new CreateAccount(primaryStage);
+        });
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        
-        
-        bt.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
-//                if (userTextField.getText().equals("admin") && passwordTextField.getText().equals("password")) {
-                  if(true){
-                    HomeScreen hs = new HomeScreen(primaryStage);
-                } else {
-                    errorMessage.setFill(Color.RED);
-                    errorMessage.setText("Incorrect Username or Password");
-                }
-            }
-
-        });
     }
 
-    public Scene getScene() {
-        return scene;
+    public void setUserPass(String user, String pass) {
+        userName = user;
+        password = pass;
     }
 }

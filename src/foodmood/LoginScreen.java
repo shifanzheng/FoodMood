@@ -21,9 +21,6 @@ import javafx.stage.Stage;
  */
 public class LoginScreen {
 
-    static String userName;
-    static String password;
-
     private Scene scene;
 
     public LoginScreen(Stage primaryStage) {
@@ -50,7 +47,6 @@ public class LoginScreen {
 
         PasswordField passwordTextField = new PasswordField();
         grid.add(passwordTextField, 1, 2);
-        passwordTextField.setText(password);
 
         Button loginBt = new Button("Sign in");
         grid.add(loginBt, 1, 4);
@@ -66,7 +62,7 @@ public class LoginScreen {
                 errorMessage.setFill(Color.RED);
                 errorMessage.setText("You did not enter a username or password");
             }
-            else if (userTextField.getText().equals(userName) && passwordTextField.getText().equals(password)){
+            else if (userTextField.getText().equals(UserProfile.userName) && passwordTextField.getText().equals(UserProfile.password)){
                 HomeScreen hs = new HomeScreen(primaryStage);
             }
             else {
@@ -76,15 +72,10 @@ public class LoginScreen {
         });
 
         createAccountBt.setOnAction((ActionEvent e) -> {
-            CreateAccount ca = new CreateAccount(primaryStage);
+            UserProfile up = new UserProfile(primaryStage);
         });
 
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public void setUserPass(String user, String pass) {
-        userName = user;
-        password = pass;
     }
 }

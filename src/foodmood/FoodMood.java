@@ -31,6 +31,7 @@ import javafx.stage.Stage;
  */
 public class FoodMood extends Application {
 
+    
     Stage primaryStage = new Stage();
     ArrayList<Scene> sceneList;
     //ArrayList<Scene> sceneList;
@@ -73,6 +74,7 @@ public class FoodMood extends Application {
             But for now, the skeleton of the project is ready.
          */
         LoginScreen lgs = new LoginScreen(primaryStage);
+        
 
         //TabbedView tabbedView = new TabbedView(sceneMap);
         //sceneList.addAll(sceneMap.values());

@@ -3,7 +3,6 @@
 package foodmood;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,20 +24,26 @@ public class HomeScreen {
 
         Scene scene = new Scene(grid, 500, 700);
 
-        Label welcomeLabel = new Label("Welcome to the Home Screen");
+        Label welcomeLabel = new Label("Welcome to the Home Screen "+UserProfile.userName+" !");
         grid.add(welcomeLabel, 0, 0);
+        
+        Label foodLabel= new Label("Your favorite food is: "+UserProfile.favoriteFood);
+        grid.add(foodLabel, 0, 1);
+        
+        Label moodLabel = new Label("Your current mood is: "+UserProfile.currentMood);
+        grid.add(moodLabel, 0, 2);
 
         Button homeBt = new Button();
         homeBt.setText("Return to Login");
-        grid.add(homeBt, 0, 1);
+        grid.add(homeBt, 0, 3);
         
         Button editBt = new Button();
         editBt.setText("Edit Profile");
-        grid.add(editBt, 0, 2);
+        grid.add(editBt, 0, 4);
 
         Button tabViewBt = new Button();
         tabViewBt.setText("Go to tab view");
-        grid.add(tabViewBt, 0, 3);
+        grid.add(tabViewBt, 0, 5);
 
         primaryStage.setScene(scene);
         primaryStage.show();

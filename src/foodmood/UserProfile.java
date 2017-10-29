@@ -16,10 +16,13 @@ import javafx.stage.Stage;
  * @author Shifan
  */
 public class UserProfile {
-    
-    String userName;
-    String password;
-    
+
+    public static String userName;
+    public static String password;
+    public static String favoriteFood = "N/A";
+    public static String currentMood = "N/A";
+
+//    Scene scene;
     public UserProfile(Stage primaryStage) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -39,16 +42,29 @@ public class UserProfile {
 
         TextField passwordTextField = new TextField();
         grid.add(passwordTextField, 1, 2);
-        
-        
+
+        Label foodLabel = new Label("Enter your new favorite food");
+        grid.add(foodLabel, 0, 3);
+
+        TextField foodTextField = new TextField();
+        grid.add(foodTextField, 1, 3);
+
+        Label moodLabel = new Label("Enter your current mood");
+        grid.add(moodLabel, 0, 4);
+
+        TextField moodTextField = new TextField();
+        grid.add(moodTextField, 1, 4);
 
         Button submitBt = new Button("Submit Changes");
-        grid.add(submitBt, 2, 3);
+        grid.add(submitBt, 0, 5);
 
         submitBt.setOnAction((ActionEvent e) -> {
+            userName = userTextField.getText();
+            password = passwordTextField.getText();
+            favoriteFood = foodTextField.getText();
+            currentMood = moodTextField.getText();
             HomeScreen hs = new HomeScreen(primaryStage);
-            userName=userTextField.getText();
-            password=passwordTextField.getText();
+
         });
 
         primaryStage.setScene(scene);

@@ -11,7 +11,6 @@ import MoodView.EnterMoodView;
 import MoodView.MoodStatsView;
 import NutritionSuggestionView.SuggestionView;
 import PersonalAnalysisView.MicroView;
-import static foodmood.FoodMood.view1;
 import java.util.Iterator;
 import java.util.Map;
 import javafx.scene.Scene;

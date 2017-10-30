@@ -4,7 +4,11 @@ package FoodController;
 
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
-import FoodView.FoodStatsView;
+import java.util.Random;
+import java.util.Stack;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -25,6 +29,43 @@ public class EnterFoodController {
     public EnterFoodController(FoodModel model, EnterFoodView view, Stage primaryStage) {
         EnterFoodController.model = new FoodModel();
         EnterFoodController.view = new EnterFoodView(primaryStage);
+        
+        Button addFoodButton = new Button("Add Food");
+        addFoodButton.setOnAction(e -> {
+            
+        });
+        
+        Button undoActionButton = new Button("Add Food");
+
+        
+        
+        Stack foodAddHistory = new Stack();
+        
+        Random rand = new Random();
+        
+        ObservableList<String> items =FXCollections.observableArrayList ();
+        
+        
+        addFoodButton.setOnAction(e -> {
+            
+            String foodAdded = "Food #" + rand.nextInt(1000000);
+            items.add(foodAdded);
+            foodAddHistory.add(foodAdded);
+            //listView.setItems(items);
+            
+        });
+        
+        view.setAddFoodButton(addFoodButton);
+        
+        undoActionButton.setOnAction(e ->{
+            
+            if(items.size() > 0){
+                foodAddHistory.pop();
+                items.setAll(foodAddHistory);
+            }
+            
+        });
+        
     }
 
     /**

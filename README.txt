@@ -1,3 +1,5 @@
+October 29 2017
+
 JASON HITCHINGS:
 Composite Structural Pattern - The composite structural pattern is the base design pattern being used in this application. It start out in the login screen, since that is the base of the tree, and branches out from there. 
 Pagination - The application runs on a pagination structure, but the page that was focused on was the login screen since that was the part that Jason decided to focus on for this iteration.

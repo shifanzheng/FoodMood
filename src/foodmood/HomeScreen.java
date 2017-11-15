@@ -2,8 +2,9 @@
  */
 package foodmood;
 
+import UserProfile.UserProfileView;
+import UserProfile.UserProfileModel;
 import FoodView.EnterFoodView;
-import NutritionSuggestionView.SuggestionView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,27 +19,26 @@ import javafx.stage.Stage;
  */
 public class HomeScreen {
 
-
-    public HomeScreen(Stage primaryStage, EnterFoodView view1) {
+    public HomeScreen(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
 
         Scene scene = new Scene(grid, 500, 700);
 
-        Label welcomeLabel = new Label("Welcome to the Home Screen "+UserProfile.userName+" !");
+        Label welcomeLabel = new Label("Welcome to the Home Screen " + upm.getUserName() + " !");
         grid.add(welcomeLabel, 0, 0);
-        
-        Label foodLabel= new Label("Your favorite food is: "+UserProfile.favoriteFood);
+
+        Label foodLabel = new Label("Your favorite food is: " + upm.getFavoriteFood());
         grid.add(foodLabel, 0, 1);
-        
-        Label moodLabel = new Label("Your current mood is: "+UserProfile.currentMood);
+
+        Label moodLabel = new Label("Your current mood is: " + upm.getCurrentMood());
         grid.add(moodLabel, 0, 2);
 
         Button homeBt = new Button();
         homeBt.setText("Return to Login");
         grid.add(homeBt, 0, 3);
-        
+
         Button editBt = new Button();
         editBt.setText("Edit Profile");
         grid.add(editBt, 0, 4);
@@ -51,11 +51,11 @@ public class HomeScreen {
         primaryStage.show();
 
         homeBt.setOnAction((ActionEvent e) -> {
-            LoginScreen lgs = new LoginScreen(primaryStage, view1);
+            LoginScreen lgs = new LoginScreen(primaryStage, view1, upm);
         });
-        
+
         editBt.setOnAction((ActionEvent e) -> {
-            UserProfile up = new UserProfile(primaryStage, view1);
+            UserProfileView up = new UserProfileView(primaryStage, view1, upm);
         });
 
         tabViewBt.setOnAction((ActionEvent e) -> {

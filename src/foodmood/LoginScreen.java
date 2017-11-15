@@ -2,8 +2,9 @@
  */
 package foodmood;
 
+import UserProfile.UserProfileView;
+import UserProfile.UserProfileModel;
 import FoodView.EnterFoodView;
-import NutritionSuggestionView.SuggestionView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -25,7 +26,7 @@ public class LoginScreen {
 
     private Scene scene;
 
-    public LoginScreen(Stage primaryStage, EnterFoodView view1) {
+    public LoginScreen(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(30);
@@ -60,21 +61,20 @@ public class LoginScreen {
         grid.add(createAccountBt, 1, 5);
 
         loginBt.setOnAction((ActionEvent e) -> {
-            if (userTextField.getText() == null || passwordTextField.getText() == null) {
+            if (userTextField.getText().equals("") || passwordTextField.getText().equals("")) {
                 errorMessage.setFill(Color.RED);
-                errorMessage.setText("You did not enter a username or password");
-            }
-            else if (userTextField.getText().equals(UserProfile.userName) && passwordTextField.getText().equals(UserProfile.password)){
-                HomeScreen hs = new HomeScreen(primaryStage, view1);
-            }
-            else {
+                errorMessage.setText("Username/Password not entered");
+            } else if (userTextField.getText().equals(upm.getUserName()) && passwordTextField.getText().equals(upm.getPassword())) {
+                HomeScreen hs = new HomeScreen(primaryStage, view1, upm);
+            } else {
                 errorMessage.setFill(Color.RED);
-                errorMessage.setText("Incorrect Username or Password");
+                errorMessage.setText("Incorrect Username/Password");
             }
         });
 
         createAccountBt.setOnAction((ActionEvent e) -> {
-            UserProfile up = new UserProfile(primaryStage, view1);
+            UserProfileView up = new UserProfileView(primaryStage, view1, upm);
+
         });
 
         primaryStage.setScene(scene);

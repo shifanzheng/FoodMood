@@ -16,12 +16,8 @@ import NutritionSuggestionsModel.SuggestionModel;
 import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import UserProfile.UserProfileModel;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
@@ -31,16 +27,15 @@ import javafx.stage.Stage;
  */
 public class FoodMood extends Application {
 
-    
     private Stage primaryStage = new Stage();
-
+    UserProfileModel defaultProfile = new UserProfileModel();
     private static EnterFoodView view1;
     private static FoodStatsView view2;
     private static EnterMoodView view3;
     private static MoodStatsView view4;
     private static MicroView view5;
     private static SuggestionView view6;
-    
+
     /**
      * @param args the command line arguments
      */
@@ -54,22 +49,22 @@ public class FoodMood extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         this.primaryStage = primaryStage;
-        
+
         primaryStage.setTitle("Food Mood");
 
         TabbedView tabbedView = new TabbedView();
         ToolBar toolBar = tabbedView.toolBar(primaryStage, enterFood(), foodStats(), enterMood(), moodStats(), analysis(), suggestion());
-        
+
         view2.setToolBar(toolBar);
         view3.setToolBar(toolBar);
         view4.setToolBar(toolBar);
         view5.setToolBar(toolBar);
         view6.setToolBar(toolBar);
-        
+
         view1.setToolBar(toolBar);
-        
-        LoginScreen lgs = new LoginScreen(primaryStage, view1);
-        
+
+        LoginScreen lgs = new LoginScreen(primaryStage, view1, defaultProfile);
+
     }
 
     private EnterFoodView enterFood() {
@@ -87,14 +82,14 @@ public class FoodMood extends Application {
     }
 
     private EnterMoodView enterMood() {
-        MoodModel model = new MoodModel("test","test",0);
+        MoodModel model = new MoodModel("test", "test", 0);
         view3 = new EnterMoodView(primaryStage);
         EnterMoodController foodStatsController = new EnterMoodController(model, view3, primaryStage);
         return view3;
     }
 
     private MoodStatsView moodStats() {
-        MoodModel model = new MoodModel("test","test",0);
+        MoodModel model = new MoodModel("test", "test", 0);
         view4 = new MoodStatsView(primaryStage);
         MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
         return view4;

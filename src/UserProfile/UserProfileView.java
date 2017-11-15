@@ -1,9 +1,9 @@
 /*
  */
-package foodmood;
+package UserProfile;
 
 import FoodView.EnterFoodView;
-import NutritionSuggestionView.SuggestionView;
+import foodmood.HomeScreen;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,15 +17,9 @@ import javafx.stage.Stage;
  *
  * @author Shifan
  */
-public class UserProfile {
+public class UserProfileView {
 
-    public static String userName;
-    public static String password;
-    public static String favoriteFood = "N/A";
-    public static String currentMood = "N/A";
-
-//    Scene scene;
-    public UserProfile(Stage primaryStage, EnterFoodView view1) {
+    public UserProfileView(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
@@ -61,11 +55,11 @@ public class UserProfile {
         grid.add(submitBt, 0, 5);
 
         submitBt.setOnAction((ActionEvent e) -> {
-            userName = userTextField.getText();
-            password = passwordTextField.getText();
-            favoriteFood = foodTextField.getText();
-            currentMood = moodTextField.getText();
-            HomeScreen hs = new HomeScreen(primaryStage, view1);
+            upm.setUserName(userTextField.getText());
+            upm.setPassword(passwordTextField.getText());
+            upm.setFavoriteFood(foodTextField.getText());
+            upm.setCurrentMood(moodTextField.getText());
+            HomeScreen hs = new HomeScreen(primaryStage, view1, upm);
 
         });
 

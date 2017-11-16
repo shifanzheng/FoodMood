@@ -11,6 +11,8 @@ import java.sql.*;
  *
  * @author Jason
  */
+// This doesn't work but I don't want to delete it in case I decide to work on
+// it again sometime
 public class DBConnection {
     
     public DBConnection(String food,int cal, String macroN, int protein, int fat, int carbs) throws SQLException, ClassNotFoundException{
@@ -34,13 +36,14 @@ public class DBConnection {
     public DBConnection(String food, String mood) throws SQLException, ClassNotFoundException{
         //create connection
         try{
-            String myDriver = "org.apache.derby.jdbc.ClientDriver";
+            
             String myUrl = "jdbc:derby://localhost:1527/FoodMood";
-            Class.forName(myDriver);
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             Connection conn = DriverManager.getConnection(myUrl,"group8","ist412");
-            Statement s = conn.createStatement();
-            //insert into table
-            s.executeUpdate("INSERT INTO MOODS (FOODTYPE, MOOD) VALUE(' " + food + " , " + mood + "' )");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO MOODS VALUES (?,?)");
+            ps.setString(1, food);
+            ps.setString(2, mood);
+            ps.executeUpdate();
             conn.close();
         }
         catch (Exception e){

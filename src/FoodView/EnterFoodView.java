@@ -22,7 +22,6 @@ import javafx.stage.Stage;
 public class EnterFoodView{
     
     Stage primaryStage = new Stage();
-    ToolBar toolBar;
     Scene scene;
     BorderPane root;
     
@@ -30,10 +29,13 @@ public class EnterFoodView{
     Button addFoodButton;
     Button undoActionButton;
     
+    ToolBar toolBar;
+    
     /**
      * Default constructor for EnterFoodView Class
      */
     public EnterFoodView(Stage primaryStage){
+        
         this.primaryStage = primaryStage;
         
         VBox layout = new VBox();
@@ -47,14 +49,11 @@ public class EnterFoodView{
         
         layout.getChildren().addAll(label, listView, addFoodButton, undoActionButton);
         
-        
-        
         Stack foodAddHistory = new Stack();
         
         Random rand = new Random();
         
-        ObservableList<String> items =FXCollections.observableArrayList ();
-        
+        ObservableList<String> items = FXCollections.observableArrayList ();
         
         addFoodButton.setOnAction(e -> {
             
@@ -73,13 +72,6 @@ public class EnterFoodView{
             }
             
         });
-        
-        
-        
-        
-        
-        
-        
         
         root = new BorderPane(layout);
         

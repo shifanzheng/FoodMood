@@ -3,6 +3,7 @@
 package FoodController;
 
 import FoodModel.FoodModel;
+import FoodView.EnterFoodView;
 import FoodView.FoodStatsView;
 import MoodController.EnterMoodController;
 import MoodModel.MoodModel;
@@ -27,8 +28,8 @@ public class FoodStatsController {
      */
     public FoodStatsController(FoodModel model, FoodStatsView view, Stage primaryStage) {
         this.primaryStage = new Stage();
-        model = new FoodModel();
-        view = new FoodStatsView(primaryStage);
+        this.model = model;
+        this.view = view;
     }
 
     /**
@@ -51,4 +52,9 @@ public class FoodStatsController {
         //moodView.displayView();
 
     }
+    
+    public FoodStatsView getView(){
+        return view;
+    }
+    
 }

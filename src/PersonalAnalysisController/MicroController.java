@@ -2,6 +2,7 @@
  */
 package PersonalAnalysisController;
 
+import FoodView.EnterFoodView;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
 import javafx.stage.Stage;
@@ -40,4 +41,9 @@ public class MicroController {
     public void updateView(MicroView view) {
         //view.setVisible(true);
     }
+    
+    public MicroView getView(){
+        return view;
+    }
+    
 }

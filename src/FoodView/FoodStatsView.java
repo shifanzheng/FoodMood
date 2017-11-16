@@ -37,9 +37,6 @@ public class FoodStatsView extends JFrame{
         
         root = new BorderPane(layout);
         
-        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        //root.setTop(toolBar);
-        
         scene = new Scene(root, 500, 700);
         
     }

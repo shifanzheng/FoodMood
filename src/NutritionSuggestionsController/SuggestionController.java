@@ -2,6 +2,7 @@
  */
 package NutritionSuggestionsController;
 
+import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import NutritionSuggestionsModel.SuggestionModel;
 import javafx.stage.Stage;
@@ -19,8 +20,8 @@ public class SuggestionController {
      * Default constructor for SuggestionController class.
      */
     public SuggestionController(SuggestionModel model, SuggestionView view, Stage primaryStage){
-        model = new SuggestionModel();
-        view = new SuggestionView(primaryStage);
+        this.model = model;
+        this.view = view;
     }
     
     /**
@@ -36,5 +37,9 @@ public class SuggestionController {
      */
     public void suggestFood(){
         
+    }
+    
+    public SuggestionView getView(){
+        return view;
     }
 }

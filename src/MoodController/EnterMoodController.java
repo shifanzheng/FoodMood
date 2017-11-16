@@ -2,6 +2,7 @@
  */
 package MoodController;
 
+import FoodView.EnterFoodView;
 import MoodModel.MoodModel;
 import MoodView.EnterMoodView;
 import NutritionSuggestionView.SuggestionView;
@@ -27,7 +28,9 @@ public class EnterMoodController {
      */
     public EnterMoodController(MoodModel model, EnterMoodView view, Stage primaryStage){
        // this.model;
-        this.view = new EnterMoodView(primaryStage);
+        this.model = model;
+        this.view = view;
+        
     }
     
     /**
@@ -60,4 +63,9 @@ public class EnterMoodController {
     //microview.displayView();
     
     }
+    
+    public EnterMoodView getView(){
+        return view;
+    }
+    
 }

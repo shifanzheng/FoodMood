@@ -17,8 +17,10 @@ import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
 import UserProfile.UserProfileModel;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
-import javafx.scene.control.ToolBar;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -28,13 +30,10 @@ import javafx.stage.Stage;
 public class FoodMood extends Application {
 
     private Stage primaryStage = new Stage();
-    UserProfileModel defaultProfile = new UserProfileModel();
-    private static EnterFoodView view1;
-    private static FoodStatsView view2;
-    private static EnterMoodView view3;
-    private static MoodStatsView view4;
-    private static MicroView view5;
-    private static SuggestionView view6;
+    private UserProfileModel defaultProfile = new UserProfileModel();
+    
+    List<Scene> sceneList = new ArrayList<Scene>();
+    
 
     /**
      * @param args the command line arguments
@@ -52,8 +51,10 @@ public class FoodMood extends Application {
 
         primaryStage.setTitle("Food Mood");
 
-        TabbedView tabbedView = new TabbedView();
-        ToolBar toolBar = tabbedView.toolBar(primaryStage, enterFood(), foodStats(), enterMood(), moodStats(), analysis(), suggestion());
+        //TabbedView tabbedView = new TabbedView();
+        
+        /*
+        ToolBar toolBar = tabbedView.toolBar(primaryStage);
 
         view2.setToolBar(toolBar);
         view3.setToolBar(toolBar);
@@ -62,51 +63,71 @@ public class FoodMood extends Application {
         view6.setToolBar(toolBar);
 
         view1.setToolBar(toolBar);
+        */
 
-        LoginScreen lgs = new LoginScreen(primaryStage, view1, defaultProfile);
+        //LoginScreen lgs = new LoginScreen(primaryStage, view1, defaultProfile);
 
+        createGUI();
+        
+        primaryStage.setScene(sceneList.get(0));
+        primaryStage.show();
+        //primaryStage.setScene(foodcntl.getView().getScene());
+        //primaryStage.show();
+    }
+    
+    private void createGUI(){
+        enterFood();
+        foodStats();
+        enterMood();
+        moodStats();
+        analysis();
+        suggestion();
     }
 
-    private EnterFoodView enterFood() {
+    private void enterFood() {
         FoodModel model = new FoodModel();
-        view1 = new EnterFoodView(primaryStage);
+        EnterFoodView view1 = new EnterFoodView(primaryStage);
         EnterFoodController foodcntl = new EnterFoodController(model, view1, primaryStage);
-        return view1;
+        sceneList.add(foodcntl.getView().getScene());
+        System.out.println(foodcntl.getView().getScene().getX());
     }
 
-    private FoodStatsView foodStats() {
+    private void foodStats() {
         FoodModel model = new FoodModel();
-        view2 = new FoodStatsView(primaryStage);
+        FoodStatsView view2 = new FoodStatsView(primaryStage);
         FoodStatsController foodStatsController = new FoodStatsController(model, view2, primaryStage);
-        return view2;
+        sceneList.add(foodStatsController.getView().getScene());
     }
 
-    private EnterMoodView enterMood() {
+    private void enterMood() {
         MoodModel model = new MoodModel("test", "test", 0);
-        view3 = new EnterMoodView(primaryStage);
+        EnterMoodView view3 = new EnterMoodView(primaryStage);
         EnterMoodController foodStatsController = new EnterMoodController(model, view3, primaryStage);
-        return view3;
+        sceneList.add(foodStatsController.getView().getScene());
     }
 
-    private MoodStatsView moodStats() {
+    private void moodStats() {
         MoodModel model = new MoodModel("test", "test", 0);
-        view4 = new MoodStatsView(primaryStage);
+        MoodStatsView view4 = new MoodStatsView(primaryStage);
         MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
-        return view4;
+        sceneList.add(foodStatsController.getView().getScene());
     }
 
-    private MicroView analysis() {
+    
+    private void analysis() {
         MicroModel model = new MicroModel();
-        view5 = new MicroView(primaryStage);
+        MicroView view5 = new MicroView(primaryStage);
         MicroController foodStatsController = new MicroController(model, view5, primaryStage);
-        return view5;
+        //BROKEN
+        //sceneList.add(foodStatsController.getView().getScene());
     }
 
-    private SuggestionView suggestion() {
+    private void suggestion() {
         SuggestionModel model = new SuggestionModel();
-        view6 = new SuggestionView(primaryStage);
+        SuggestionView view6 = new SuggestionView(primaryStage);
         SuggestionController foodStatsController = new SuggestionController(model, view6, primaryStage);
-        return view6;
+        //BROKEN
+        //sceneList.add(foodStatsController.getView().getScene());
     }
 
     //SCENE MAP CONSTRUCTION

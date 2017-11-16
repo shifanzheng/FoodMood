@@ -2,6 +2,7 @@
  */
 package MoodController;
 
+import FoodView.EnterFoodView;
 import MoodModel.MoodModel;
 import MoodView.MoodStatsView;
 import javafx.stage.Stage;
@@ -19,8 +20,10 @@ public class MoodStatsController {
      * Default constructor for MoodStatsController class.
      */
     public MoodStatsController(MoodModel model, MoodStatsView view, Stage primaryStage) {
-       // model = new ModelModel();
-        view = new MoodStatsView(primaryStage);
+        
+        this.model = model;
+        this.view = view;
+        
     }
 
     /**
@@ -28,6 +31,10 @@ public class MoodStatsController {
      */
     public void getMood() {
         model.getMood();
+    }
+    
+    public MoodStatsView getView(){
+        return view;
     }
 
     

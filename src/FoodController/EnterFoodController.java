@@ -17,8 +17,8 @@ import javafx.stage.Stage;
  */
 public class EnterFoodController {
 
-    private static FoodModel model;
-    private static EnterFoodView view;
+    private FoodModel model;
+    private EnterFoodView view;
 
 
     /**
@@ -27,66 +27,44 @@ public class EnterFoodController {
      * @param view
      */
     public EnterFoodController(FoodModel model, EnterFoodView view, Stage primaryStage) {
-        EnterFoodController.model = new FoodModel();
-        EnterFoodController.view = new EnterFoodView(primaryStage);
         
-        Button addFoodButton = new Button("Add Food");
-        addFoodButton.setOnAction(e -> {
-            
-        });
+        this.model = model;
+        this.view = view;
         
-        Button undoActionButton = new Button("Add Food");
+        setBehaviors();
+        
+    }
+    
+    public void setBehaviors(){
+        addFoodButton();
+    }
 
+    public EnterFoodView getView(){
+        return view;
+    }
+    
+    public Button addFoodButton(){
         
+        Button button = view.getAddFoodButton();
         
         Stack foodAddHistory = new Stack();
-        
         Random rand = new Random();
+        ObservableList<String> items = FXCollections.observableArrayList ();
         
-        ObservableList<String> items =FXCollections.observableArrayList ();
-        
-        
-        addFoodButton.setOnAction(e -> {
+        button.setOnAction(e -> {
             
             String foodAdded = "Food #" + rand.nextInt(1000000);
             items.add(foodAdded);
             foodAddHistory.add(foodAdded);
-            //listView.setItems(items);
+            System.out.println(foodAdded);
+            System.out.println("hello");
             
         });
-        
-        view.setAddFoodButton(addFoodButton);
-        
-        undoActionButton.setOnAction(e ->{
-            
-            if(items.size() > 0){
-                foodAddHistory.pop();
-                items.setAll(foodAddHistory);
-            }
-            
-        });
-        
-    }
 
-    /**
-     * Setter for name of food.
-     * @param food
-     */
-    public void setName(String food) {
-        model.setName(food);
-    }
-
-    /**
-     * Method to update view
-     */
-    public void updateView(EnterFoodView view) {
-        //view.setVisible(true);
+        return button;
+        
     }
     
-    public void initializeFoodStat(){
-        //FoodStatsView statsview = new FoodStatsView();
-        //FoodStatsController foodstatcntl = new FoodStatsController(model, statsview);
-        //statsview.setVisible(true);
     
-    }
+    
 }

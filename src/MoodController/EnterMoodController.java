@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javafx.stage.Stage;
 import javax.swing.JButton;
-import moodview.MoodListViewCRUD;
 
 /**
  *
@@ -36,30 +35,7 @@ public class EnterMoodController {
         this.model = model;
         this.view = view;
         
-        class ButtonListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent ae) 
-        {
-
-         JButton eventSource = (JButton)ae.getSource();
-         JButton seventSource = (JButton)ae.getSource();
-         
-         /*if (eventSource == view.getBtnAdd()){
-             model.setMood(view.getMood());
-             model.setIntensity(view.getMoodSlider());
-             model.getTimestamp();
-             
-         }
-         
-         if (seventSource == view.getBtnNext()){
-             MoodListViewCRUD crud = new MoodListViewCRUD();
-             
-             
-               //
-               //
-               //
-
-         }*/
+        setBehaviors();
         
     }
     
@@ -98,7 +74,10 @@ public class EnterMoodController {
     public EnterMoodView getView(){
         return view;
     }
+
+    private void setBehaviors() {
+       
+    }
     
 }
-  }
-}
+

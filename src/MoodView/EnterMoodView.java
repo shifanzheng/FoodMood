@@ -24,10 +24,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javax.swing.JButton;
@@ -46,43 +52,59 @@ import javax.swing.table.DefaultTableModel;
 public class EnterMoodView{
     
     Stage primaryStage = new Stage();
-    ToolBar toolBar;
     Scene scene;
     BorderPane root;
-    private  TextField mood;
-    private  Button btnAdd;
-    private  Button btnNext;
-    private  Label moodLabel, sliderLabel;
-    private  Slider moodSlider;
-    private  MoodModel model;
+    
+    ListView<String> listView;
+    Button addFoodButton;
+    Button undoActionButton;
+    
+    ToolBar toolBar;
+    
+    Slider moodSlider;
+    Button btnAdd;
     /**
      * Default constructor for EnterMoodView class.
+     * @param primaryStage
      */
     public EnterMoodView(Stage primaryStage){
         this.primaryStage = primaryStage;
         
         VBox layout = new VBox();
-        Label label = new Label("Enter Mood View");
-        layout.getChildren().addAll(label);
+        Label label = new Label("Enter Food View");
         
-        root = new BorderPane(layout);
+        listView = new ListView();
+        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         
-        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        //root.setTop(toolBar);
+        addFoodButton = new Button("Add Mood");
+        undoActionButton = new Button("Undo Action");
         
-        scene = new Scene(root, 500, 700);
-        model = new MoodModel();
-        Frame frame = new Frame();
+        layout.getChildren().addAll(label, listView, addFoodButton, undoActionButton);
         
-        Font font = new Font("Arial",1,16);
+        Stack moodAddHistory = new Stack();
         
-        mood = new TextField();
+        Random rand = new Random();
         
-        btnAdd = new Button("Add More");  
-        btnNext = new Button("Next Step");
+        ObservableList<String> items = FXCollections.observableArrayList ();
         
-        moodLabel = new Label("Enter Your Mood: ");
-        sliderLabel = new Label("Enter the intensity of your Mood(1 - 10): ");
+        addFoodButton.setOnAction(e -> {
+            
+            String moodAdded = "Mood #" + rand.nextInt(1000000);
+            items.add(moodAdded);
+            moodAddHistory.add(moodAdded);
+            listView.setItems(items);
+            
+        });
+       // model = new MoodModel();
+        
+        
+       // mood = new TextField();
+        
+       // btnAdd = new Button("Add More");  
+       // btnNext = new Button("Next Step");
+        
+        //moodLabel = new Label("Enter Your Mood: ");
+       // sliderLabel = new Label("Enter the intensity of your Mood(1 - 10): ");
         
        /* moodSlider = new JSlider();
         moodSlider = new JSlider(JSlider.HORIZONTAL, 1,10,1);
@@ -111,8 +133,6 @@ public class EnterMoodView{
         moodLabel.setBounds(15, 220, 105, 25);
         sliderLabel.setBounds(15, 250, 105, 25);
         moodSlider.setBounds(15,270,105,25);*/
-        
-        
         
     }
     
@@ -144,20 +164,6 @@ public class EnterMoodView{
     }
 
     /**
-     * @return the mood
-     */
-    public String getMood() {
-        return mood.getText();
-    }
-
-    /**
-     * @param mood the mood to set
-     */
-    public void setMood(TextField mood) {
-        this.mood = mood;
-    }
-
-    /**
      * @return the btnAdd
      */
     public Button getBtnAdd() {
@@ -169,20 +175,6 @@ public class EnterMoodView{
      */
     public void setBtnAdd(Button btnAdd) {
         this.btnAdd = btnAdd;
-    }
-
-    /**
-     * @return the btnNext
-     */
-    public Button getBtnNext() {
-        return btnNext;
-    }
-
-    /**
-     * @param btnNext the btnNext to set
-     */
-    public void setBtnNext(Button btnNext) {
-        this.btnNext = btnNext;
     }
 
     /**

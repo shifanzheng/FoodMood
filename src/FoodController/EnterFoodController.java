@@ -9,6 +9,7 @@ import java.util.Stack;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
 /**
@@ -63,6 +64,10 @@ public class EnterFoodController {
 
         return button;
         
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        view.setToolBar(toolBar);
     }
     
     

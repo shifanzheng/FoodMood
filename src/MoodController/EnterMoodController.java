@@ -13,6 +13,7 @@ import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import javax.swing.JButton;
 
@@ -77,6 +78,10 @@ public class EnterMoodController {
 
     private void setBehaviors() {
        
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        view.setToolBar(toolBar);
     }
     
 }

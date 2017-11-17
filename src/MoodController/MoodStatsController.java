@@ -5,6 +5,7 @@ package MoodController;
 import FoodView.EnterFoodView;
 import MoodModel.MoodModel;
 import MoodView.MoodStatsView;
+import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
 /**
@@ -35,6 +36,10 @@ public class MoodStatsController {
     
     public MoodStatsView getView(){
         return view;
+    }
+    
+    public void setToolBar(ToolBar toolBar){
+        view.setToolBar(toolBar);
     }
 
     

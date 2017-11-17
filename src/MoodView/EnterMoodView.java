@@ -71,30 +71,14 @@ public class EnterMoodView{
         this.primaryStage = primaryStage;
         
         VBox layout = new VBox();
-        Label label = new Label("Enter Food View");
+        Label label = new Label("Enter Mood View");
+                        
+        layout.getChildren().addAll(label);
         
-        listView = new ListView();
-        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        root = new BorderPane(layout);
+        root.setTop(toolBar);
+        scene = new Scene(root, 500, 700);
         
-        addFoodButton = new Button("Add Mood");
-        undoActionButton = new Button("Undo Action");
-        
-        layout.getChildren().addAll(label, listView, addFoodButton, undoActionButton);
-        
-        Stack moodAddHistory = new Stack();
-        
-        Random rand = new Random();
-        
-        ObservableList<String> items = FXCollections.observableArrayList ();
-        
-        addFoodButton.setOnAction(e -> {
-            
-            String moodAdded = "Mood #" + rand.nextInt(1000000);
-            items.add(moodAdded);
-            moodAddHistory.add(moodAdded);
-            listView.setItems(items);
-            
-        });
        // model = new MoodModel();
         
         

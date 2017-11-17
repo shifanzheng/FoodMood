@@ -5,13 +5,7 @@
  */
 package foodmood;
 
-import FoodView.EnterFoodView;
-import FoodView.FoodStatsView;
-import MoodView.EnterMoodView;
-import MoodView.MoodStatsView;
-import NutritionSuggestionView.SuggestionView;
-import PersonalAnalysisView.MicroView;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,14 +20,15 @@ import javafx.stage.Stage;
 public class TabbedView {
     
     Map sceneMap;
+    Stage primaryStage;
+    List<Scene> sceneList;
     
-    public TabbedView(){
-        
+    public TabbedView(Stage primaryStage, List<Scene> sceneList){
+        this.primaryStage = primaryStage;
+        this.sceneList = sceneList;
     }
     
-    
-    
-    public ToolBar toolBar(Stage primaryStage, EnterFoodView view1, FoodStatsView view2, EnterMoodView view3, MoodStatsView view4, MicroView view5, SuggestionView view6){
+    public ToolBar toolBar(){
 
         ToolBar toolBar = new ToolBar();
 
@@ -41,8 +36,7 @@ public class TabbedView {
         button1.setFocusTraversable(false);
         button1.setText("Enter Food");
         button1.setOnAction(e -> {
-            primaryStage.setScene(view1.getScene());
-            view1.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(0));
             //System.out.println("asdfasdf");
         });
 
@@ -50,45 +44,42 @@ public class TabbedView {
         button2.setFocusTraversable(false);
         button2.setText("Food Stats");
         button2.setOnAction(e -> {
-            primaryStage.setScene(view2.getScene());
-            view2.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(1));
+            //view2.setToolBar(toolBar);
         });
 
         Button button3 = new Button();
         button3.setFocusTraversable(false);
         button3.setText("Enter Mood");
         button3.setOnAction(e -> {
-            primaryStage.setScene(view3.getScene());
-            view3.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(2));
+            //view3.setToolBar(toolBar);
         });
 
         Button button4 = new Button();
         button4.setFocusTraversable(false);
         button4.setText("Mood Stats");
         button4.setOnAction(e -> {
-            primaryStage.setScene(view4.getScene());
-            view4.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(3));
+            //view4.setToolBar(toolBar);
         });
 
         Button button5 = new Button();
         button5.setFocusTraversable(false);
         button5.setText("Analysis");
         button5.setOnAction(e -> {
-            primaryStage.setScene(view5.getScene());
-            view5.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(4));
+            //view5.setToolBar(toolBar);
         });
 
         Button button6 = new Button();
         button6.setFocusTraversable(false);
         button6.setText("Suggestions");
         button6.setOnAction(e -> {
-            primaryStage.setScene(view6.getScene());
-            view6.setToolBar(toolBar);
+            primaryStage.setScene(sceneList.get(5));
+            //view6.setToolBar(toolBar);
         });
-        
-        
-        //Label label = new Label("Hello");
-        
+                
         toolBar.getItems().addAll(button1, button2, button3, button4, button5, button6);
         
         return toolBar;

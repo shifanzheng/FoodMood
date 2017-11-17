@@ -5,6 +5,7 @@ package NutritionSuggestionsController;
 import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import NutritionSuggestionsModel.SuggestionModel;
+import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
 /**
@@ -42,4 +43,9 @@ public class SuggestionController {
     public SuggestionView getView(){
         return view;
     }
+    
+    public void setToolBar(ToolBar toolBar){
+        view.setToolBar(toolBar);
+    }
+    
 }

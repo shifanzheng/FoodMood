@@ -100,14 +100,14 @@ public class FoodMood extends Application {
     }
 
     private void enterMood() {
-        MoodModel model = new MoodModel("test", "test", 0);
+        MoodModel model = new MoodModel();
         EnterMoodView view3 = new EnterMoodView(primaryStage);
         EnterMoodController foodStatsController = new EnterMoodController(model, view3, primaryStage);
         sceneList.add(foodStatsController.getView().getScene());
     }
 
     private void moodStats() {
-        MoodModel model = new MoodModel("test", "test", 0);
+        MoodModel model = new MoodModel();
         MoodStatsView view4 = new MoodStatsView(primaryStage);
         MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
         sceneList.add(foodStatsController.getView().getScene());

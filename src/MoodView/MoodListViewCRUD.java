@@ -3,17 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package moodview;
 
-/**
- *
- * @author nsterling76
- */
+import MoodModel.MoodModel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,21 +26,35 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
-
+/**
+ *
+ * @author Noel Sterling Jr
+ */
 public class MoodListViewCRUD {
     
+    private JTable table ; 
+    private Object[] columns;
+    private DefaultTableModel model;
+    private JTextField mood;
+    private JSlider updateIntensity;
+    private JButton btnAdd,btnDelete,btnUpdate,btnNext;
+    private JLabel moodLabel, foodLabel;
+    private Object[] row;
+    private Timestamp timestamp;
     public MoodListViewCRUD(){
         
         // create JFrame and JTable
+        MoodModel mod = new MoodModel();
         JFrame frame = new JFrame();
-        JTable table = new JTable(); 
-        Object[] columns = {"Mood","Food","Calories","Sodium","Fats"};
-        DefaultTableModel model = new DefaultTableModel();
+        table = new JTable();
+        columns = new Object []{"Mood","Mood Intensity","Timestamp"};
+        model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
+        timestamp = new Timestamp(System.currentTimeMillis());
         
         // set the model to the table
         table.setModel(model);
@@ -59,42 +66,35 @@ public class MoodListViewCRUD {
         table.setFont(font);
         table.setRowHeight(30);
         
-        JTextField mood = new JTextField();
-        JTextField food = new JTextField();
-        JTextField calories = new JTextField();
-        JTextField sodium = new JTextField();
-        JTextField fats = new JTextField();
+        mood = new JTextField();
+        updateIntensity = new JSlider();
+        updateIntensity = new JSlider(JSlider.HORIZONTAL, 1,10,1);
+        updateIntensity.setMajorTickSpacing(1);
+        updateIntensity.setPaintTicks(true);
+        updateIntensity.setPaintLabels(true);
+
         
         
-        JButton btnAdd = new JButton("Add");
-        JButton btnDelete = new JButton("Delete");
-        JButton btnUpdate = new JButton("Update");  
-        JButton back = new JButton("Back");
+        btnAdd = new JButton("Add More Moods");
+        btnDelete = new JButton("Delete");
+        btnUpdate = new JButton("Update");  
+        btnNext = new JButton("Next Steps");
         
-        JLabel moodLabel = new JLabel("Enter Your Mood");
-        JLabel foodLabel = new JLabel("Enter Your Food");
-        JLabel calLabel = new JLabel("Enter the amount of Calories");
-        JLabel sodLabel = new JLabel("Enter amount sodium content");
-        JLabel fatsLabel = new JLabel("Enter the amount of Fats");
+        moodLabel = new JLabel("Enter More Moods");
+        foodLabel = new JLabel("Update your Intensity from 1 - 10");
         
         mood.setBounds(120, 220, 100, 25);
-        food.setBounds(120, 250, 100, 25);
-        calories.setBounds(120, 280, 100, 25);
-        sodium.setBounds(120, 310, 100, 25);
-        fats.setBounds(120, 340, 100, 25);
+        updateIntensity.setBounds(120, 250, 100, 25);
         
         btnAdd.setBounds(260, 220, 100, 25);
         btnUpdate.setBounds(260, 265, 100, 25);
         btnDelete.setBounds(260, 310, 100, 25);
-        back.setBounds(260, 350, 100, 25);
+        btnNext.setBounds(260, 350, 100, 25);
         
         moodLabel.setBounds(15, 220, 105, 25);
         foodLabel.setBounds(15, 250, 105, 25);
-        calLabel.setBounds(15, 280, 105, 25);
-        sodLabel.setBounds(15, 310, 105, 25);
-        fatsLabel.setBounds(15, 380, 300, 25);
         
-        JScrollPane pane = new JScrollPane(table);
+        JScrollPane pane = new JScrollPane(getTable());
         pane.setBounds(0, 0, 880, 200);
         
         frame.setLayout(null);
@@ -102,26 +102,26 @@ public class MoodListViewCRUD {
         frame.add(pane);
         
         frame.add(mood);
-        frame.add(food);
-        frame.add(calories);
-        frame.add(sodium);
+        frame.add(updateIntensity);
+
     
         // add JButtons to the jframe
         frame.add(btnAdd);
         frame.add(btnDelete);
         frame.add(btnUpdate);
-        frame.add(back);
+        frame.add(btnNext);
         
         frame.add(moodLabel);
         frame.add(foodLabel);
-        frame.add(calLabel);
-        frame.add(sodLabel);
-        frame.add(fatsLabel);
         
         // create an array of objects to set the row data
-        Object[] row = new Object[5];
+        row = new Object[2];
         
-        // button add row
+        frame.setSize(900,450);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        
         btnAdd.addActionListener(new ActionListener(){
             BufferedReader br;
             @Override
@@ -129,10 +129,9 @@ public class MoodListViewCRUD {
             public void actionPerformed(ActionEvent e) {
 
                 row[0] = mood.getText();
-                row[1] = food.getText();
-                row[2] = calories.getText();
-                row[3] = sodium.getText();
-                row[4] = fats.getText();
+                row[1] = updateIntensity.getValue();
+                row[2] = timestamp;
+
                 
                 // add row to the model
                 model.addRow(row);
@@ -167,12 +166,12 @@ public class MoodListViewCRUD {
             }
         });
         
-        back.addActionListener(new ActionListener() {
+        btnNext.addActionListener(new ActionListener() {
         @Override
             public void actionPerformed(ActionEvent ae) {
                 JButton eventSource = (JButton) ae.getSource();
 
-                if (eventSource == back) {
+                if (eventSource == btnNext) {
                     frame.dispose();
                 }
             }
@@ -189,9 +188,8 @@ public class MoodListViewCRUD {
             int i = table.getSelectedRow();
             
             mood.setText(model.getValueAt(i, 0).toString());
-            food.setText(model.getValueAt(i, 1).toString());
-            calories.setText(model.getValueAt(i, 2).toString());
-            sodium.setText(model.getValueAt(i, 3).toString());
+            updateIntensity.setValue((int) model.getValueAt(i, 1));
+
         }
         });
         
@@ -207,22 +205,151 @@ public class MoodListViewCRUD {
                 if(i >= 0) 
                 {
                    model.setValueAt(mood.getText(), i, 0);
-                   model.setValueAt(food.getText(), i, 1);
-                   model.setValueAt(calories.getText(), i, 2);
-                   model.setValueAt(sodium.getText(), i, 3);
+                   model.setValueAt(updateIntensity.getValue(), i, 1);
+
                 }
                 else{
                     System.out.println("Update Error");
                 }
             }
         });
-        
-        frame.setSize(900,450);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        
-    }
 }
+    
+    
+    /**
+     * @return the table
+     */
+    public JTable getTable() {
+        return table;
+    }
 
+    /**
+     * @param table the table to set
+     */
+    public void setTable(JTable table) {
+        this.table = table;
+    }
 
+    /**
+     * @return the columns
+     */
+    public Object[] getColumns() {
+        return columns;
+    }
+
+    /**
+     * @param columns the columns to set
+     */
+    public void setColumns(Object[] columns) {
+        this.columns = columns;
+    }
+
+    /**
+     * @return the model
+     */
+    public DefaultTableModel getModel() {
+        return model;
+    }
+
+    /**
+     * @param model the model to set
+     */
+    public void setModel(DefaultTableModel model) {
+        this.model = model;
+    }
+
+    /**
+     * @return the mood
+     */
+    public JTextField getMood() {
+        return mood;
+    }
+
+    /**
+     * @param mood the mood to set
+     */
+    public void setMood(JTextField mood) {
+        this.mood = mood;
+    }
+
+    /**
+     * @return the btnAdd
+     */
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    /**
+     * @param btnAdd the btnAdd to set
+     */
+    public void setBtnAdd(JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    /**
+     * @return the btnDelete
+     */
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    /**
+     * @param btnDelete the btnDelete to set
+     */
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    /**
+     * @return the btnUpdate
+     */
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    /**
+     * @param btnUpdate the btnUpdate to set
+     */
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
+    }
+
+    /**
+     * @return the btnNext
+     */
+    public JButton getBtnNext() {
+        return btnNext;
+    }
+
+    /**
+     * @param btnNext the btnNext to set
+     */
+    public void setBtnNext(JButton btnNext) {
+        this.btnNext = btnNext;
+    }
+
+    /**
+     * @return the row
+     */
+    public Object[] getRow() {
+        return row;
+    }
+
+    /**
+     * @param row the row to set
+     */
+    public void setRow(Object[] row) {
+        this.row = row;
+    }
+
+    public void addButtonListener(ActionListener al) { 
+    
+        getBtnAdd().addActionListener(al);
+        getBtnUpdate().addActionListener(al);
+        getBtnDelete().addActionListener(al);
+        getBtnNext().addActionListener(al);
+    }
+    
+    
+    
+}

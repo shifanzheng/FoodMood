@@ -2,36 +2,28 @@
  */
 package MoodModel;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Shifan
  */
 public class MoodModel {
+    
     private String mood;
-    private String food;
-    private int moodEffect;
-
-    /**
-     * Default constructor for MoodModel class
-     * @param foodName
-     * @param moodName
-     * @param moodEffect
-     */
-    public MoodModel(String foodName, String moodName, int moodEffect){
-        this.food = foodName;
-        this.mood = moodName;
-        this.moodEffect = moodEffect;
-        
+    private int intensity;
+    private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    
+    
+    public MoodModel(){
+    
     }
+
     /**
      * @return the mood
      */
     public String getMood() {
         return mood;
-    }
-    
-     public String getFood() {
-        return food;
     }
 
     /**
@@ -40,22 +32,28 @@ public class MoodModel {
     public void setMood(String mood) {
         this.mood = mood;
     }
+
+    /**
+     * @return the intensity
+     */
+    public int getIntensity() {
+        return intensity;
+    }
+
+    /**
+     * @param intensity the intensity to set
+     */
+    public void setIntensity(int intensity) {
+        this.intensity = intensity;
+    }
+
+    /**
+     * @return the timestamp
+     */
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
     
-    public void setFood(String food) {
-        this.food = food;
-    }
-
-    /**
-     * @return the moodEffect
-     */
-    public int getMoodEffect() {
-        return moodEffect;
-    }
-
-    /**
-     * @param moodEffect the moodEffect to set
-     */
-    public void setMoodEffect(int moodEffect) {
-        this.moodEffect = moodEffect;
-    }
+    
+    
 }

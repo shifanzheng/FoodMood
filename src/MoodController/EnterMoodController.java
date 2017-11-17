@@ -11,7 +11,11 @@ import NutritionSuggestionsModel.SuggestionModel;
 import PersonalAnalysisController.MicroController;
 import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.stage.Stage;
+import javax.swing.JButton;
+import moodview.MoodListViewCRUD;
 
 /**
  *
@@ -25,11 +29,37 @@ public class EnterMoodController {
      * Default constructor for EnterMoodController class
      * @param model
      * @param view
+     * @param primaryStage
      */
     public EnterMoodController(MoodModel model, EnterMoodView view, Stage primaryStage){
        // this.model;
         this.model = model;
         this.view = view;
+        
+        class ButtonListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent ae) 
+        {
+
+         JButton eventSource = (JButton)ae.getSource();
+         JButton seventSource = (JButton)ae.getSource();
+         
+         /*if (eventSource == view.getBtnAdd()){
+             model.setMood(view.getMood());
+             model.setIntensity(view.getMoodSlider());
+             model.getTimestamp();
+             
+         }
+         
+         if (seventSource == view.getBtnNext()){
+             MoodListViewCRUD crud = new MoodListViewCRUD();
+             
+             
+               //
+               //
+               //
+
+         }*/
         
     }
     
@@ -44,6 +74,7 @@ public class EnterMoodController {
     
     /**
      * Method to update the view.
+     * @param view
      */
     public void updateView(EnterMoodView view){
         //view.setVisible(true);
@@ -68,4 +99,6 @@ public class EnterMoodController {
         return view;
     }
     
+}
+  }
 }

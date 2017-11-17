@@ -1,13 +1,12 @@
 
 package FoodView;
 
-import java.util.Random;
-import java.util.Stack;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import FoodController.FoodDataType;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
@@ -54,15 +53,36 @@ public class EnterFoodView{
         carbsText.setMaxWidth(160);
         fatsText.setMaxWidth(160);
         
+        TableView table = new TableView();
+        
+        table.setEditable(true);
+ 
+        TableColumn foodCol = new TableColumn("Food");
+        TableColumn caloriesCol = new TableColumn("Calories");
+        TableColumn proteinCol = new TableColumn("Protein");
+        TableColumn carbsCol = new TableColumn("Carbs");
+        TableColumn fatsCol = new TableColumn("Fats");
+        
+        table.getColumns().addAll(foodCol, caloriesCol, proteinCol, carbsCol, fatsCol);
+        
         Button submitFood = new Button("Submit");
         
-        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitFood);
+        FoodDataType foodData = new FoodDataType("Pizza", 200, 30, 50, 50);
         
-        Stack foodAddHistory = new Stack();
         
-        Random rand = new Random();
         
-        ObservableList<String> items = FXCollections.observableArrayList ();
+        table.getItems().add(foodData);
+        
+        
+        
+        
+        
+        
+        
+        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitFood, table);
+        
+        
+        
         
         
         

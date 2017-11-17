@@ -8,8 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -24,11 +23,7 @@ public class EnterFoodView{
     Stage primaryStage = new Stage();
     Scene scene;
     BorderPane root;
-    
-    ListView<String> listView;
-    Button addFoodButton;
-    Button undoActionButton;
-    
+        
     ToolBar toolBar;
     
     /**
@@ -41,13 +36,27 @@ public class EnterFoodView{
         VBox layout = new VBox();
         Label label = new Label("Enter Food View");
         
-        listView = new ListView();
-        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        Label foodName = new Label("Food:");
+        Label calories = new Label("Calories:");
+        Label protein = new Label("Protein:");
+        Label carbs = new Label("Carbs:");
+        Label fats = new Label("Fats:");
         
-        addFoodButton = new Button("Add Food");
-        undoActionButton = new Button("Undo Action");
+        TextField foodNameText = new TextField();
+        TextField caloriesText = new TextField();
+        TextField proteinText = new TextField();
+        TextField carbsText = new TextField();
+        TextField fatsText = new TextField();
         
-        layout.getChildren().addAll(label, listView, addFoodButton, undoActionButton);
+        foodNameText.setMaxWidth(160);
+        caloriesText.setMaxWidth(160);
+        proteinText.setMaxWidth(160);
+        carbsText.setMaxWidth(160);
+        fatsText.setMaxWidth(160);
+        
+        Button submitFood = new Button("Submit");
+        
+        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitFood);
         
         Stack foodAddHistory = new Stack();
         
@@ -55,23 +64,7 @@ public class EnterFoodView{
         
         ObservableList<String> items = FXCollections.observableArrayList ();
         
-        addFoodButton.setOnAction(e -> {
-            
-            String foodAdded = "Food #" + rand.nextInt(1000000);
-            items.add(foodAdded);
-            foodAddHistory.add(foodAdded);
-            listView.setItems(items);
-            
-        });
         
-        undoActionButton.setOnAction(e ->{
-            
-            if(items.size() > 0){
-                foodAddHistory.pop();
-                items.setAll(foodAddHistory);
-            }
-            
-        });
         
         root = new BorderPane(layout);
         
@@ -113,21 +106,5 @@ public class EnterFoodView{
         this.toolBar = toolBar;
         root.setTop(toolBar);
     }
-    
-    public void setAddFoodButton(Button addFoodButton){
-        this.addFoodButton = addFoodButton;
-    }
-    
-    public void setUndoActionButton(Button undoActionButton){
-        this.undoActionButton = undoActionButton;
-    }
-    
-    public Button getAddFoodButton(){
-        return addFoodButton;
-    }
-    
-    public Button getUndoActionButton(){
-        return undoActionButton;
-    }
-    
+        
 }

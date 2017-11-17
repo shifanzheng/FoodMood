@@ -37,34 +37,14 @@ public class EnterFoodController {
     }
     
     public void setBehaviors(){
-        addFoodButton();
+        //addFoodButton();
     }
 
     public EnterFoodView getView(){
         return view;
     }
     
-    public Button addFoodButton(){
-        
-        Button button = view.getAddFoodButton();
-        
-        Stack foodAddHistory = new Stack();
-        Random rand = new Random();
-        ObservableList<String> items = FXCollections.observableArrayList ();
-        
-        button.setOnAction(e -> {
-            
-            String foodAdded = "Food #" + rand.nextInt(1000000);
-            items.add(foodAdded);
-            foodAddHistory.add(foodAdded);
-            System.out.println(foodAdded);
-            System.out.println("hello");
-            
-        });
-
-        return button;
-        
-    }
+    
     
     public void setToolBar(ToolBar toolBar){
         view.setToolBar(toolBar);

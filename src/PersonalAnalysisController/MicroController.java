@@ -20,8 +20,8 @@ public class MicroController {
      * Default constructor for MicroController class
      */
     public MicroController(MicroModel model, MicroView view, Stage primaryStage) {
-        model = new MicroModel();
-        view = new MicroView(primaryStage);
+        this.model = model;
+        this.view = view;
     }
 
     /**

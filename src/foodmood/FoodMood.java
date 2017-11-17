@@ -112,22 +112,19 @@ public class FoodMood extends Application {
         MoodStatsController foodStatsController = new MoodStatsController(model, view4, primaryStage);
         sceneList.add(foodStatsController.getView().getScene());
     }
-
     
     private void analysis() {
         MicroModel model = new MicroModel();
         MicroView view5 = new MicroView(primaryStage);
         MicroController foodStatsController = new MicroController(model, view5, primaryStage);
-        //BROKEN
-        //sceneList.add(foodStatsController.getView().getScene());
+        sceneList.add(foodStatsController.getView().getScene());
     }
 
     private void suggestion() {
         SuggestionModel model = new SuggestionModel();
         SuggestionView view6 = new SuggestionView(primaryStage);
         SuggestionController foodStatsController = new SuggestionController(model, view6, primaryStage);
-        //BROKEN
-        //sceneList.add(foodStatsController.getView().getScene());
+        sceneList.add(foodStatsController.getView().getScene());
     }
 
     //SCENE MAP CONSTRUCTION

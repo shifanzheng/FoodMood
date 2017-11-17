@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,6 +25,12 @@ public class EnterFoodView{
     BorderPane root;
         
     ToolBar toolBar;
+    
+    TextField foodNameText;
+    TextField caloriesText;
+    TextField proteinText;
+    TextField carbsText;
+    TextField fatsText;
     
     /**
      * Default constructor for EnterFoodView Class
@@ -41,11 +48,11 @@ public class EnterFoodView{
         Label carbs = new Label("Carbs:");
         Label fats = new Label("Fats:");
         
-        TextField foodNameText = new TextField();
-        TextField caloriesText = new TextField();
-        TextField proteinText = new TextField();
-        TextField carbsText = new TextField();
-        TextField fatsText = new TextField();
+        foodNameText = new TextField();
+        caloriesText = new TextField();
+        proteinText = new TextField();
+        carbsText = new TextField();
+        fatsText = new TextField();
         
         foodNameText.setMaxWidth(160);
         caloriesText.setMaxWidth(160);
@@ -63,15 +70,21 @@ public class EnterFoodView{
         TableColumn carbsCol = new TableColumn("Carbs");
         TableColumn fatsCol = new TableColumn("Fats");
         
+        foodCol.setCellValueFactory(new PropertyValueFactory<>("foodName"));
+        caloriesCol.setCellValueFactory(new PropertyValueFactory<>("calories"));
+        proteinCol.setCellValueFactory(new PropertyValueFactory<>("protein"));
+        carbsCol.setCellValueFactory(new PropertyValueFactory<>("carbs"));
+        fatsCol.setCellValueFactory(new PropertyValueFactory<>("fat"));
+        
         table.getColumns().addAll(foodCol, caloriesCol, proteinCol, carbsCol, fatsCol);
         
         Button submitFood = new Button("Submit");
         
-        FoodDataType foodData = new FoodDataType("Pizza", 200, 30, 50, 50);
         
         
         
-        table.getItems().add(foodData);
+        table.getItems().add(new FoodDataType("Pizza", 200, 30, 50, 60));
+        table.getItems().add(new FoodDataType("Grapes", 50, 0, 10, 0));
         
         
         

@@ -3,6 +3,7 @@
 package FoodController;
 
 import FoodModel.FoodModel;
+import FoodController.FoodDataType;
 import FoodView.EnterFoodView;
 import java.util.Random;
 import java.util.Stack;
@@ -62,9 +63,13 @@ public class EnterFoodController {
             FoodDataType foodData = new FoodDataType(model.getFoodName(), model.getCalories(), 
                     model.getProtein(), model.getCarbs(), model.getFats());
             
+            model.getFoodList().add(foodData);
+            
             view.getTable().getItems().add(foodData);
             
             view.clearTextFields();
+            
+            System.out.println(model.getFoodList().size());
             
         });
     }        

@@ -34,7 +34,7 @@ public class EnterFoodView{
     
     Button submitButton;
     
-    TableView table;
+    TableView<FoodDataType> table;
     
     /**
      * Default constructor for EnterFoodView Class
@@ -64,7 +64,7 @@ public class EnterFoodView{
         carbsText.setMaxWidth(160);
         fatsText.setMaxWidth(160);
         
-        table = new TableView();
+        table = new TableView<>();
         
         table.setEditable(true);
  
@@ -86,10 +86,10 @@ public class EnterFoodView{
         
         
         
-        
+        /*
         table.getItems().add(new FoodDataType("Pizza", 200, 30, 50, 60));
         table.getItems().add(new FoodDataType("Grapes", 50, 0, 10, 0));
-        
+        */
         
         
         

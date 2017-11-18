@@ -1,6 +1,10 @@
 
 package FoodModel;
 
+import FoodController.FoodDataType;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author Shifan
@@ -17,6 +21,9 @@ public class FoodModel {
     private int carbs;
     private int fats;
     
+    private ObservableList<FoodDataType> foodList = FXCollections.observableArrayList();
+
+
     
     /**
      * Default constructor for FoodModel class
@@ -118,5 +125,13 @@ public class FoodModel {
 
     public void setFats(int fats) {
         this.fats = fats;
+    }
+
+    public ObservableList<FoodDataType> getFoodList() {
+        return foodList;
+    }
+
+    public void addFoodList(FoodDataType foodData) {
+        this.foodList.add(foodData);
     }
 }

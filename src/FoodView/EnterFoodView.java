@@ -96,7 +96,7 @@ public class EnterFoodView{
         
         
         
-        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, table);
+        layout.getChildren().addAll(foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, table);
         
         
         

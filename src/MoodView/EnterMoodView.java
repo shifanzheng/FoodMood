@@ -86,7 +86,7 @@ public class EnterMoodView{
         foodField = new TextField();
         foodField.setMaxWidth(160);
         
-        Slider moodSlider = new Slider();
+        moodSlider = new Slider();
         moodSlider.setMin(1);
         moodSlider.setMax(10);
         moodSlider.setValue(1);
@@ -164,7 +164,7 @@ public class EnterMoodView{
      * @return the moodSlider
      */
     public int getMoodSlider() {
-        int value;
+        int value = 0;
         value = (int)moodSlider.getValue();
         return value;
     }

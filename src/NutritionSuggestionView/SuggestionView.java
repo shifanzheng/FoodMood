@@ -39,8 +39,7 @@ public class SuggestionView{
     public SuggestionView(Stage primaryStage){
         this.primaryStage = primaryStage;
         
-        VBox layout = new VBox();
-        Label label = new Label("Suggestions View");       
+        VBox layout = new VBox();  
 
         TextArea instructions = new TextArea("Thank you for using FoodMood! If you clicked on this tab that means you're looking"+
         "\nfor some suggestions on what to eat. Lucky for you we have a couple suggestions to"+
@@ -54,7 +53,7 @@ public class SuggestionView{
         instructions.setFocusTraversable(false);
         instructions.setMouseTransparent(true);
         
-        layout.getChildren().addAll(label,instructions);
+        layout.getChildren().addAll(instructions);
         
         root = new BorderPane(layout);
         

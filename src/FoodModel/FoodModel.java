@@ -10,7 +10,14 @@ public class FoodModel {
     private String type;
     private double price;
     private int quantity;
-
+    
+    private String foodName;
+    private int calories;
+    private int protein;
+    private int carbs;
+    private int fats;
+    
+    
     /**
      * Default constructor for FoodModel class
      */
@@ -71,5 +78,45 @@ public class FoodModel {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
+
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(int carbs) {
+        this.carbs = carbs;
+    }
+
+    public int getFats() {
+        return fats;
+    }
+
+    public void setFats(int fats) {
+        this.fats = fats;
     }
 }

@@ -38,18 +38,34 @@ public class EnterFoodController {
     
     public void setBehaviors(){
         //addFoodButton();
+        submitButton();
     }
 
     public EnterFoodView getView(){
         return view;
     }
-    
-    
-    
+        
     public void setToolBar(ToolBar toolBar){
         view.setToolBar(toolBar);
     }
     
-    
-    
+    public void submitButton(){
+        
+        view.getSubmitButton().setOnAction(e -> {
+            
+            model.setFoodName(view.getFoodNameText());
+            model.setCalories(view.getCaloriesText());
+            model.setProtein(view.getProteinText());
+            model.setCarbs(view.getCarbsText());
+            model.setFats(view.getFatsText());
+            
+            FoodDataType foodData = new FoodDataType(model.getFoodName(), model.getCalories(), 
+                    model.getProtein(), model.getCarbs(), model.getFats());
+            
+            view.getTable().getItems().add(foodData);
+            
+            view.clearTextFields();
+            
+        });
+    }        
 }

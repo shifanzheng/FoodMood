@@ -32,6 +32,10 @@ public class EnterFoodView{
     TextField carbsText;
     TextField fatsText;
     
+    Button submitButton;
+    
+    TableView table;
+    
     /**
      * Default constructor for EnterFoodView Class
      */
@@ -60,7 +64,7 @@ public class EnterFoodView{
         carbsText.setMaxWidth(160);
         fatsText.setMaxWidth(160);
         
-        TableView table = new TableView();
+        table = new TableView();
         
         table.setEditable(true);
  
@@ -78,7 +82,7 @@ public class EnterFoodView{
         
         table.getColumns().addAll(foodCol, caloriesCol, proteinCol, carbsCol, fatsCol);
         
-        Button submitFood = new Button("Submit");
+        submitButton = new Button("Submit");
         
         
         
@@ -92,7 +96,7 @@ public class EnterFoodView{
         
         
         
-        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitFood, table);
+        layout.getChildren().addAll(label, foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, table);
         
         
         
@@ -140,4 +144,40 @@ public class EnterFoodView{
         root.setTop(toolBar);
     }
         
+    public String getFoodNameText(){
+        return foodNameText.getText();
+    }
+    
+    public int getCaloriesText(){
+        return Integer.valueOf(caloriesText.getText());
+    }
+        
+    public int getProteinText(){
+        return Integer.valueOf(proteinText.getText());
+    }
+    
+    public int getCarbsText(){
+        return Integer.valueOf(carbsText.getText());
+    }
+    
+    public int getFatsText(){
+        return Integer.valueOf(fatsText.getText());
+    }
+    
+    public Button getSubmitButton(){
+        return submitButton;
+    }
+    
+    public TableView getTable(){
+        return table;
+    }
+    
+    public void clearTextFields(){
+        foodNameText.clear();
+        caloriesText.clear();
+        proteinText.clear();
+        carbsText.clear();
+        fatsText.clear();
+    }
+            
 }

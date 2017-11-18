@@ -6,6 +6,7 @@
 package DataStorage;
 
 import java.io.*;
+import javafx.scene.control.TableView;
 
 /**
  *
@@ -66,6 +67,25 @@ public class DeSerialization implements java.io.Serializable {
         }
         catch(ClassNotFoundException c){
             System.out.println("Food class not found");
+            c.printStackTrace();
+            return;
+        }
+    }
+    public DeSerialization(TableView table){
+        Table t = null;
+        try{
+            FileInputStream fileIn = new FileInputStream("table.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            t = (Table) in.readObject();
+            in.close();
+            fileIn.close();
+        }
+        catch(IOException i){
+            i.printStackTrace();
+            return;
+        }
+        catch(ClassNotFoundException c){
+            System.out.println("Table class not found");
             c.printStackTrace();
             return;
         }

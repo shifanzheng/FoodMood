@@ -5,6 +5,7 @@
  */
 package DataStorage;
 import java.io.*;
+import javafx.scene.control.TableView;
 /**
  *
  * @author Jason
@@ -44,6 +45,19 @@ public class Serialization implements java.io.Serializable {
             FileOutputStream fileout = new FileOutputStream("user.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileout);
             out.writeObject(u);
+            out.close();
+            fileout.close();
+        }
+        catch(IOException i){
+            i.printStackTrace();
+        }
+    }
+    public Serialization(TableView table) throws FileNotFoundException, IOException{
+        Table t = new Table(table);
+        try{
+            FileOutputStream fileout = new FileOutputStream("table.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileout);
+            out.writeObject(t);
             out.close();
             fileout.close();
         }

@@ -2,9 +2,10 @@
  */
 package FoodView;
 
-import foodmood.FoodMood;
-import foodmood.TabbedView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
@@ -33,11 +34,24 @@ public class FoodStatsView extends JFrame{
         
         VBox layout = new VBox();
         Label label = new Label("Food Stats View");
-        layout.getChildren().addAll(label);
+        
+        
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                new PieChart.Data("Protein", 13),
+                new PieChart.Data("Carbs", 25),
+                new PieChart.Data("Fat", 10));
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Macronutrient Distribution");
+        
+        
+        layout.getChildren().addAll(label, chart);
         
         root = new BorderPane(layout);
         
         scene = new Scene(root, 500, 700);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
         
     }
     

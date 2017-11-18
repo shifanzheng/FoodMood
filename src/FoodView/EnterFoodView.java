@@ -115,6 +115,8 @@ public class EnterFoodView{
         
         
         scene = new Scene(root, 500, 700);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
     }
     
     /**

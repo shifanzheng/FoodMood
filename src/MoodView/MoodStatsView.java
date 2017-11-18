@@ -58,6 +58,8 @@ public class MoodStatsView{
     public void setToolBar(ToolBar toolBar){
         this.toolBar = toolBar;
         root.setTop(toolBar);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
     }
     
 }

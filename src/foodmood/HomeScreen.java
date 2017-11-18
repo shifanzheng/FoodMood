@@ -19,12 +19,14 @@ import javafx.stage.Stage;
  */
 public class HomeScreen {
 
-    public HomeScreen(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
+    public HomeScreen(Stage primaryStage, Scene view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
 
         Scene scene = new Scene(grid, 500, 700);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
 
         Label welcomeLabel = new Label("Welcome to the Home Screen " + upm.getUserName() + " !");
         grid.add(welcomeLabel, 0, 0);
@@ -59,7 +61,8 @@ public class HomeScreen {
         });
 
         tabViewBt.setOnAction((ActionEvent e) -> {
-            primaryStage.setScene(view1.getScene());
+            primaryStage.setScene(view1);
+            
         });
     }
 }

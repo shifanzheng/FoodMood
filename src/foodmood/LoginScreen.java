@@ -26,15 +26,18 @@ public class LoginScreen {
 
     private Scene scene;
 
-    public LoginScreen(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
+    public LoginScreen(Stage primaryStage, Scene view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(30);
         grid.setVgap(25);
 
         scene = new Scene(grid, 500, 700);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
 
         Text welcomeMessage = new Text("Welcome to Food Mood");
+        welcomeMessage.setFill(Color.WHITE);
         welcomeMessage.setFont(Font.font("Calibri", 30));
         grid.add(welcomeMessage, 0, 0, 2, 1);
 

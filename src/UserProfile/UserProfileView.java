@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class UserProfileView {
 
-    public UserProfileView(Stage primaryStage, EnterFoodView view1, UserProfileModel upm) {
+    public UserProfileView(Stage primaryStage, Scene view1, UserProfileModel upm) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(25);
@@ -64,6 +64,8 @@ public class UserProfileView {
         });
 
         primaryStage.setScene(scene);
+        String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
+        scene.getStylesheets().add(css);
         primaryStage.show();
     }
 }

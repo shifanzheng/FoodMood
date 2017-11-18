@@ -17,6 +17,10 @@ and open the template in the editor.
 .tab {
 -fx-background-color: linear-gradient(to top, -fx-base, derive(-fx-base,30%));
 }
+
+.text{
+    -fx-text-fill: white;
+}
  
 .menu-bar {
 -fx-background-color: linear-gradient(to bottom, -fx-base, derive(-fx-base,30%));
@@ -28,7 +32,6 @@ linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(
 }
  
 .button {
--fx-background-color: transparent;
 }
  
 .button:hover {

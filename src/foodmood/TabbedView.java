@@ -80,7 +80,7 @@ public class TabbedView {
             //view6.setToolBar(toolBar);
         });
                 
-        toolBar.getItems().addAll(button1, button2, button3, button4, button5, button6);
+        toolBar.getItems().addAll(button1, button2, button3, button5, button6);
         
         return toolBar;
         

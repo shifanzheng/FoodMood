@@ -42,6 +42,8 @@ public class FoodMood extends Application {
     MicroController microController;
     SuggestionController suggestionsController;
     
+    FoodModel foodModel;
+    
 
     /**
      * @param args the command line arguments
@@ -84,9 +86,9 @@ public class FoodMood extends Application {
     }
 
     private void enterFood() {
-        FoodModel model = new FoodModel();
+        foodModel = new FoodModel();
         EnterFoodView view1 = new EnterFoodView(primaryStage);
-        foodcntl = new EnterFoodController(model, view1, primaryStage);
+        foodcntl = new EnterFoodController(foodModel, view1, primaryStage);
         sceneList.add(foodcntl.getView().getScene());
         System.out.println(foodcntl.getView().getScene().getX());
     }
@@ -94,7 +96,7 @@ public class FoodMood extends Application {
     private void foodStats() {
         FoodModel model = new FoodModel();
         FoodStatsView view2 = new FoodStatsView(primaryStage);
-        foodStatsController = new FoodStatsController(model, view2, primaryStage);
+        foodStatsController = new FoodStatsController(foodModel, view2, primaryStage);
         sceneList.add(foodStatsController.getView().getScene());
     }
 

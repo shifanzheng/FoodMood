@@ -3,11 +3,11 @@
 package FoodController;
 
 import FoodModel.FoodModel;
-import FoodView.EnterFoodView;
 import FoodView.FoodStatsView;
-import MoodController.EnterMoodController;
-import MoodModel.MoodModel;
-import MoodView.EnterMoodView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 
@@ -31,27 +31,12 @@ public class FoodStatsController {
         this.primaryStage = new Stage();
         this.model = model;
         this.view = view;
+        
+        setBehavior();
     }
-
-    /**
-     * Method to get statistics on food.
-     */
-    public void getStats() {
-        model.getName();
-        model.getType();
-
-    }
-
-    public void updateView(FoodStatsView view) {
-        view.setVisible(true);
-    }
-
-    public void initilizeMood() {
-        //EnterMoodView moodView = new EnterMoodView();
-        //MoodModel moodmodel = new MoodModel();
-        //EnterMoodController moodCntl = new EnterMoodController(moodmodel, moodView);
-        //moodView.displayView();
-
+    
+    public void setBehavior(){
+        refreshButton();
     }
     
     public FoodStatsView getView(){
@@ -61,5 +46,38 @@ public class FoodStatsController {
     public void setToolBar(ToolBar toolBar){
         view.setToolBar(toolBar);
     }
+    
+    public void refreshButton(){
+        view.getRefreshButton().setOnAction(e -> {
+            
+            int totalCalories = 0;
+            int totalProtein = 0;
+            int totalCarbs = 0;
+            int totalFat = 0;
+             
+            for(FoodDataType foodData : model.getFoodList()){
+                totalCalories += foodData.getCalories();
+                totalProtein += foodData.getProtein();
+                totalCarbs += foodData.getCarbs();
+                totalFat += foodData.getFat();
+            }
+         
+            view.getLabel().setText(totalCalories + " Calories");
+            
+            ObservableList<PieChart.Data> pieChartDatapieChartData =
+                FXCollections.observableArrayList(
+                new PieChart.Data("Protein", totalProtein * 100 / (totalProtein + totalCarbs + totalFat)),
+                new PieChart.Data("Carbs", totalCarbs * 100 / (totalProtein + totalCarbs + totalFat)),
+                new PieChart.Data("Fat", totalFat * 100 / (totalProtein + totalCarbs + totalFat)));
+                    
+            view.getChart().setData(pieChartDatapieChartData);
+            //view.getChart().setData(pieChartDatapieChartData);
+            
+            
+            
+        });
+    }
+    
+    
     
 }

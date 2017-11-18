@@ -42,11 +42,4 @@ public class MoodStatsController {
         view.setToolBar(toolBar);
     }
 
-    
-    /**
-     * Method to update the view.
-//     */
-//    public void updateView(MoodStatsView view) {
-//        view.setVisible(true);
-//    }
 }

@@ -71,9 +71,6 @@ public class FoodStatsController {
                 new PieChart.Data("Fat", totalFat * 100 / (totalProtein + totalCarbs + totalFat)));
                     
             view.getChart().setData(pieChartDatapieChartData);
-            //view.getChart().setData(pieChartDatapieChartData);
-            
-            
             
         });
     }

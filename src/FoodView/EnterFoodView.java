@@ -84,35 +84,9 @@ public class EnterFoodView{
         
         submitButton = new Button("Submit");
         
-        
-        
-        /*
-        table.getItems().add(new FoodDataType("Pizza", 200, 30, 50, 60));
-        table.getItems().add(new FoodDataType("Grapes", 50, 0, 10, 0));
-        */
-        
-        
-        
-        
-        
-        
         layout.getChildren().addAll(foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, table);
-        
-        
-        
-        
-        
-        
         root = new BorderPane(layout);
-        
-        
-        
-        
-        
-        //TabbedView tabbedView = new TabbedView(FoodMood.getSceneMap());
-        //System.out.println(toolBar.getChildrenUnmodifiable().size() + " Tool bar elements.");
         root.setTop(toolBar);
-        
         
         scene = new Scene(root, 500, 700);
         String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 

@@ -62,9 +62,6 @@ public class FoodMood extends Application {
 
         createGUI();
         
-        //primaryStage.setScene(sceneList.get(0));
-        //primaryStage.show();
-        
         LoginScreen login = new LoginScreen(primaryStage, sceneList.get(0), defaultProfile);
         
     }

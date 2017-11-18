@@ -55,15 +55,6 @@ public class FoodStatsView extends JFrame{
         chart = new PieChart(pieChartData);
         chart.setTitle("Macronutrient Distribution");
         
-        /*
-        pieChartData =
-                FXCollections.observableArrayList(
-                new PieChart.Data("Protein", 103),
-                new PieChart.Data("Carbs", 25),
-                new PieChart.Data("Fat", 10));
-        chart = new PieChart(pieChartData);
-        */
-        
         layout.getChildren().addAll(refreshButton, label, chart);
         
         root = new BorderPane(layout);

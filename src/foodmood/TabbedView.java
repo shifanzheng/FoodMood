@@ -37,7 +37,6 @@ public class TabbedView {
         button1.setText("Enter Food");
         button1.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(0));
-            //System.out.println("asdfasdf");
         });
 
         Button button2 = new Button();
@@ -45,7 +44,6 @@ public class TabbedView {
         button2.setText("Food Stats");
         button2.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(1));
-            //view2.setToolBar(toolBar);
         });
 
         Button button3 = new Button();
@@ -53,7 +51,6 @@ public class TabbedView {
         button3.setText("Enter Mood");
         button3.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(2));
-            //view3.setToolBar(toolBar);
         });
 
         Button button4 = new Button();
@@ -61,7 +58,6 @@ public class TabbedView {
         button4.setText("Mood Stats");
         button4.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(3));
-            //view4.setToolBar(toolBar);
         });
 
         Button button5 = new Button();
@@ -69,7 +65,6 @@ public class TabbedView {
         button5.setText("Analysis");
         button5.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(4));
-            //view5.setToolBar(toolBar);
         });
 
         Button button6 = new Button();
@@ -77,7 +72,6 @@ public class TabbedView {
         button6.setText("Suggestions");
         button6.setOnAction(e -> {
             primaryStage.setScene(sceneList.get(5));
-            //view6.setToolBar(toolBar);
         });
                 
         toolBar.getItems().addAll(button1, button2, button3, button5, button6);

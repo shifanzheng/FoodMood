@@ -139,12 +139,6 @@ public class EnterMoodView{
         this.toolBar = toolBar;
         root.setTop(toolBar);
     }
-    
-     public void addButtonListener(ActionListener al) { 
-    
-        //getBtnAdd().addActionListener(al);
-       // getBtnNext().addActionListener(al);
-    }
 
     /**
      * @return the btnAdd
@@ -168,6 +162,7 @@ public class EnterMoodView{
         value = (int)moodSlider.getValue();
         return value;
     }
+    
     public String getFood(){
         return foodField.getText();
     }

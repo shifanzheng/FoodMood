@@ -12,11 +12,6 @@ public class UserProfileModel {
     private String password = "pass";
     private String favoriteFood = "N/A";
     private String currentMood = "N/A";
-//    
-//        public static String userName;
-//    public static String password;
-//    public static String favoriteFood = "N/A";
-//    public static String currentMood = "N/A";
 
     public UserProfileModel() {
 

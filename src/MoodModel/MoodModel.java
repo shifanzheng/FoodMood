@@ -2,7 +2,10 @@
  */
 package MoodModel;
 
+import MoodController.MoodDataType;
 import java.sql.Timestamp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -10,9 +13,11 @@ import java.sql.Timestamp;
  */
 public class MoodModel {
     
-    private String mood;
+    private int mood;
     private int intensity;
+    private String food;
     private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    private ObservableList<MoodDataType> moodList = FXCollections.observableArrayList();
     
     
     public MoodModel(){
@@ -22,14 +27,20 @@ public class MoodModel {
     /**
      * @return the mood
      */
-    public String getMood() {
+    public int getMood() {
         return mood;
+    }
+    public String getFood(){
+        return food;
+    }
+    public void setFood(String food){
+        this.food=food;
     }
 
     /**
      * @param mood the mood to set
      */
-    public void setMood(String mood) {
+    public void setMood(int mood) {
         this.mood = mood;
     }
 
@@ -53,7 +64,12 @@ public class MoodModel {
     public Timestamp getTimestamp() {
         return timestamp;
     }
-    
+    public ObservableList<MoodDataType> getMoodList(){
+        return moodList;
+    }
+    public void addMoodList(MoodDataType moodData){
+        this.moodList.add(moodData);
+    }
     
     
 }

@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import javax.swing.JButton;
-
+import MoodController.MoodDataType;
 /**
  *
  * @author Shifan
@@ -77,7 +77,21 @@ public class EnterMoodController {
     }
 
     private void setBehaviors() {
-       
+       submitButton();
+    }
+    private void submitButton(){
+        view.getSubmitButton().setOnAction(e ->{
+            model.setMood(view.getMoodSlider());
+            model.setFood(view.getFood());
+            MoodDataType moodData = new MoodDataType(model.getFood(),model.getMood());
+            model.getMoodList().add(moodData);
+        
+            view.getTable().getItems().add(moodData);
+        
+            view.clearTextFields();
+        
+            System.out.println(model.getMoodList().size());
+        });
     }
     
     public void setToolBar(ToolBar toolBar){

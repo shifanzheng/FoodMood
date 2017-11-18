@@ -35,7 +35,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -55,14 +58,17 @@ public class EnterMoodView{
     Scene scene;
     BorderPane root;
     
+    TableView table = new TableView();
     ListView<String> listView;
     Button addFoodButton;
     Button undoActionButton;
-    
+    TextField foodField;
+    String food;
     ToolBar toolBar;
     
     Slider moodSlider;
     Button btnAdd;
+    Button submitButton;
     /**
      * Default constructor for EnterMoodView class.
      * @param primaryStage
@@ -73,53 +79,44 @@ public class EnterMoodView{
         VBox layout = new VBox();
         Label label = new Label("Enter Mood View");
                         
-        layout.getChildren().addAll(label);
         
+        Label moodLabel = new Label("Set your mood: (1 lowest 10 highest)");
+        Label foodLabel = new Label("Food");
+        
+        foodField = new TextField();
+        foodField.setMaxWidth(160);
+        
+        Slider moodSlider = new Slider();
+        moodSlider.setMin(1);
+        moodSlider.setMax(10);
+        moodSlider.setValue(1);
+        moodSlider.setShowTickLabels(true);
+        moodSlider.setShowTickMarks(true);
+        moodSlider.setMajorTickUnit(1);
+        moodSlider.setMinorTickCount(0);
+        moodSlider.setBlockIncrement(1);
+        moodSlider.valueProperty().addListener((obs,oldVal,newVal)->moodSlider.setValue(newVal.intValue()));
+        moodSlider.setMaxWidth(300);
+        
+        table.setEditable(true);
+        table.setMaxWidth(300);
+ 
+        TableColumn foodCol = new TableColumn("Food");
+        TableColumn moodCol = new TableColumn("Mood");
+        
+        foodCol.setCellValueFactory(new PropertyValueFactory<>("foodName"));
+        moodCol.setCellValueFactory(new PropertyValueFactory<>("Mood"));
+        
+        table.getColumns().addAll(foodCol,moodCol);
+        
+        submitButton = new Button("Submit");
+        
+        layout.getChildren().addAll(foodLabel,foodField,label,moodLabel,moodSlider,submitButton,table);
         root = new BorderPane(layout);
         root.setTop(toolBar);
         scene = new Scene(root, 500, 700);
         String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm(); 
         scene.getStylesheets().add(css);
-        
-       // model = new MoodModel();
-        
-        
-       // mood = new TextField();
-        
-       // btnAdd = new Button("Add More");  
-       // btnNext = new Button("Next Step");
-        
-        //moodLabel = new Label("Enter Your Mood: ");
-       // sliderLabel = new Label("Enter the intensity of your Mood(1 - 10): ");
-        
-       /* moodSlider = new JSlider();
-        moodSlider = new JSlider(JSlider.HORIZONTAL, 1,10,1);
-        moodSlider.setMajorTickSpacing(1);
-        moodSlider.setPaintTicks(true);
-        moodSlider.setPaintLabels(true);
-        
-        frame.setLayout(null);
-        frame.add(mood);
-    
-        frame.add(btnAdd);
-        frame.add(btnNext);
-        
-        frame.add(moodLabel);
-        frame.add(sliderLabel);
-        frame.add(moodSlider);
-        
-        frame.setSize(900,450);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        
-        mood.setBounds(120, 220, 100, 25);
-        btnAdd.setBounds(260, 220, 100, 25);
-        btnNext.setBounds(260, 350, 100, 25);
-        moodLabel.setBounds(15, 220, 105, 25);
-        sliderLabel.setBounds(15, 250, 105, 25);
-        moodSlider.setBounds(15,270,105,25);*/
-        
     }
     
     /**
@@ -166,8 +163,13 @@ public class EnterMoodView{
     /**
      * @return the moodSlider
      */
-    public Slider getMoodSlider() {
-        return moodSlider;
+    public int getMoodSlider() {
+        int value;
+        value = (int)moodSlider.getValue();
+        return value;
+    }
+    public String getFood(){
+        return foodField.getText();
     }
 
     /**
@@ -175,6 +177,15 @@ public class EnterMoodView{
      */
     public void setMoodSlider(Slider moodSlider) {
         this.moodSlider = moodSlider;
+    }
+    public TableView getTable(){
+        return table;
+    }
+    public void clearTextFields(){
+        foodField.clear();
+    }
+    public Button getSubmitButton(){
+        return submitButton;
     }
 
     

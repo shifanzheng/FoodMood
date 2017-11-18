@@ -1,17 +1,12 @@
-October 29 2017
+November 17 2017
 
-JASON HITCHINGS:
-Composite Structural Pattern - The composite structural pattern is the base design pattern being used in this application. It start out in the login screen, since that is the base of the tree, and branches out from there. 
-Pagination - The application runs on a pagination structure, but the page that was focused on was the login screen since that was the part that Jason decided to focus on for this iteration.
+Adhered to MVC (EVERYONE) - During the last iteration, our group struggled making the transition between swing and JavaFX.  We weren’t sure how to navigate an MVC architecture with a different API.  In order to make the deadline, we crammed our logic into our views, which made an awkward program.  During this iteration, our team primarily focused on making sure that we used MVC properly.  This involved moving all the logic from the view into the controller, where it should have been in the first place.  Additionally, our team is now using models in order to communicate between views, whereas we didn’t do that during the last iteration.
+ 
+Removed Dead Code (Jason) - Jason went through the application and found a bunch of dead code that we didn’t use in the final application.  He investigated whether or not we were going to use the code in the future; however, since the trajectory of the project changed so frequently, he found a few snippets of code that would never be used.  We removed this since we were getting confused with what code was actually being used.
 
-SHIFAN ZHENG:
-Login Screen and Home Screen - Worked on creating a login screen and home screen for us this iteration. The login screen has an option to create an account for the user. The Home Screen in the app will later show a user summary and function as a sort of quick look into the userís history of use with the application. 
-Mediator - Shifan worked on implementing mediator design into the home screen of the application. The pattern works well with the tab structure that we are using for our application, since the two patterns build off of each other.
+Removed Long Methods (Jon) - The program suffered from cramming too much logic into single methods.  This resulted redundant code since code wasn’t always being reused.  He found this in several scenarios and decided to go back and make the methods more flexible and reusable.  Because of his efforts, other group members were able to utilize his code in their parts, which made building the application easier.
 
-NOEL STERLING:
-Iterator - The application in general uses the iterator design. Since it starts out in a login screen, then brings you to a home screen, lets you choose functionality, then perform the functionality from there. However Noelís focus during this iteration of the project was on the moodviews classes. 
-Alternating row colors - Alternating row colors will be used throughout the app to make it easier for our users to browse. However since no data has really been added to the app yet and we are on a basic view it hasnít been implemented as fully as it will be in later versions.
+Removed Duplicated Code (Noel) - Noel noticed in several places that we repeated code.  Since he found this, we were able to be less redundant and create an overall more dynamic program.  This will make the code easier to maintain and expand upon in the future.
 
-JON YAHR:
-Navigation Tabs - Jonís focus on the navigation tabs for the app was the backbone of this iteration. He provided the layout for the app that became integrated into all of our individual classes and allows them to work together.
-Command - The command design pattern stores each action so that it can allow easy manipulation of those actions later in the programís execution.  The purest example of a command implementation is an undo functionality, which is what Jon decided to implement in this iteration.  When adding to the food list, the user will have the option to undo their actions if they make a mistake.  For this implementation, the add food button adds dummy data.  However, this functionality will be expanded upon in the upcoming weeks.
+Added Instance Variables to the Home Screen (Shifan) - Shifan’s part from the last iteration was strong.  The only real criticism his part received was that he didn’t have instance variables in the home screen class, which made it unnecessarily convoluted.  He made this simple fix and also focused on helping the group adhere to MVC
+

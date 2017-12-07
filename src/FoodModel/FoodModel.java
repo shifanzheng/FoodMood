@@ -20,6 +20,7 @@ public class FoodModel {
     private int protein;
     private int carbs;
     private int fats;
+    private int mood;
     
     private ObservableList<FoodDataType> foodList = FXCollections.observableArrayList();
 
@@ -134,4 +135,13 @@ public class FoodModel {
     public void addFoodList(FoodDataType foodData) {
         this.foodList.add(foodData);
     }
+
+    public int getMood() {
+        return mood;
+    }
+
+    public void setMood(int mood) {
+        this.mood = mood;
+    }
+    
 }

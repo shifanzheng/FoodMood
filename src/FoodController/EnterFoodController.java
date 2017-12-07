@@ -7,6 +7,7 @@ import FoodView.EnterFoodView;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import DataStorage.Serialization;
+import MoodController.MoodDataType;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,9 +58,13 @@ public class EnterFoodController {
             model.setProtein(view.getProteinText());
             model.setCarbs(view.getCarbsText());
             model.setFats(view.getFatsText());
+            model.setMood((int)view.getMoodSlider().getValue());
+            System.out.println("Mood Slider: " + (int)view.getMoodSlider().getValue());
             
             FoodDataType foodData = new FoodDataType(model.getFoodName(), model.getCalories(), 
-                    model.getProtein(), model.getCarbs(), model.getFats());
+                    model.getProtein(), model.getCarbs(), model.getFats(), model.getMood());
+            
+            System.out.println(model.getMood());
             
             model.getFoodList().add(foodData);
             
@@ -67,14 +72,24 @@ public class EnterFoodController {
             
             view.clearTextFields();
             
+            
+            
+        
+        
+        
+            
+            
+            /*
             try {
                 Serialization serial = new Serialization(view.getTable());
             } catch (IOException ex) {
                 Logger.getLogger(EnterFoodController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            */
             
             System.out.println(model.getFoodList().size());
             
         });
-    }        
+    }
+    
 }

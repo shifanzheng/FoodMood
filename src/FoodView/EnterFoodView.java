@@ -5,6 +5,7 @@ import FoodController.FoodDataType;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,6 +32,8 @@ public class EnterFoodView{
     TextField proteinText;
     TextField carbsText;
     TextField fatsText;
+    
+    private Slider moodSlider;
     
     Button submitButton;
     
@@ -64,6 +67,18 @@ public class EnterFoodView{
         carbsText.setMaxWidth(160);
         fatsText.setMaxWidth(160);
         
+        moodSlider = new Slider();
+        moodSlider.setMin(1);
+        moodSlider.setMax(10);
+        moodSlider.setValue(1);
+        moodSlider.setShowTickLabels(true);
+        moodSlider.setShowTickMarks(true);
+        moodSlider.setMajorTickUnit(1);
+        moodSlider.setMinorTickCount(0);
+        moodSlider.setBlockIncrement(1);
+        moodSlider.valueProperty().addListener((obs,oldVal,newVal)->moodSlider.setValue(newVal.intValue()));
+        moodSlider.setMaxWidth(300);
+        
         table = new TableView<>();
         
         table.setEditable(true);
@@ -73,18 +88,20 @@ public class EnterFoodView{
         TableColumn proteinCol = new TableColumn("Protein");
         TableColumn carbsCol = new TableColumn("Carbs");
         TableColumn fatsCol = new TableColumn("Fats");
+        TableColumn moodCol = new TableColumn("Mood");
         
         foodCol.setCellValueFactory(new PropertyValueFactory<>("foodName"));
         caloriesCol.setCellValueFactory(new PropertyValueFactory<>("calories"));
         proteinCol.setCellValueFactory(new PropertyValueFactory<>("protein"));
         carbsCol.setCellValueFactory(new PropertyValueFactory<>("carbs"));
         fatsCol.setCellValueFactory(new PropertyValueFactory<>("fat"));
+        moodCol.setCellValueFactory(new PropertyValueFactory<>("mood"));
         
-        table.getColumns().addAll(foodCol, caloriesCol, proteinCol, carbsCol, fatsCol);
+        table.getColumns().addAll(foodCol, caloriesCol, proteinCol, carbsCol, fatsCol, moodCol);
         
         submitButton = new Button("Submit");
         
-        layout.getChildren().addAll(foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, table);
+        layout.getChildren().addAll(foodName, foodNameText, calories, caloriesText, protein, proteinText, carbs, carbsText, fats, fatsText, submitButton, moodSlider, table);
         root = new BorderPane(layout);
         root.setTop(toolBar);
         
@@ -154,6 +171,14 @@ public class EnterFoodView{
         proteinText.clear();
         carbsText.clear();
         fatsText.clear();
+    }
+
+    public Slider getMoodSlider() {
+        return moodSlider;
+    }
+
+    public void setMoodSlider(Slider moodSlider) {
+        this.moodSlider = moodSlider;
     }
             
 }

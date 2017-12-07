@@ -2,21 +2,10 @@
  */
 package MoodController;
 
-import FoodView.EnterFoodView;
 import MoodModel.MoodModel;
 import MoodView.EnterMoodView;
-import NutritionSuggestionView.SuggestionView;
-import NutritionSuggestionsController.SuggestionController;
-import NutritionSuggestionsModel.SuggestionModel;
-import PersonalAnalysisController.MicroController;
-import PersonalAnalysisModel.MicroModel;
-import PersonalAnalysisView.MicroView;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
-import javax.swing.JButton;
-import MoodController.MoodDataType;
 /**
  *
  * @author Shifan

@@ -4,7 +4,6 @@ package foodmood;
 
 import UserProfile.UserProfileView;
 import UserProfile.UserProfileModel;
-import FoodView.EnterFoodView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

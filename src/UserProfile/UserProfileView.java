@@ -2,7 +2,6 @@
  */
 package UserProfile;
 
-import FoodView.EnterFoodView;
 import foodmood.HomeScreen;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;

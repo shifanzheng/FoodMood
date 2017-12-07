@@ -7,7 +7,6 @@ import FoodView.FoodStatsView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 

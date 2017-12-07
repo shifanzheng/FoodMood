@@ -14,7 +14,6 @@ import NutritionSuggestionView.SuggestionView;
 import NutritionSuggestionsController.SuggestionController;
 import NutritionSuggestionsModel.SuggestionModel;
 import PersonalAnalysisController.MicroController;
-import PersonalAnalysisModel.MicroModel;
 import PersonalAnalysisView.MicroView;
 import UserProfile.UserProfileModel;
 import java.util.ArrayList;
@@ -114,9 +113,9 @@ public class FoodMood extends Application {
     }
     
     private void analysis() {
-        MicroModel model = new MicroModel();
+//        FoodModel model = new FoodModel();
         MicroView view5 = new MicroView(primaryStage);
-        microController = new MicroController(model, view5, primaryStage);
+        microController = new MicroController(foodModel, view5, primaryStage);
         sceneList.add(microController.getView().getScene());
     }
 

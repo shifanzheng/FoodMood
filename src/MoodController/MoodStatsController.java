@@ -2,7 +2,6 @@
  */
 package MoodController;
 
-import FoodView.EnterFoodView;
 import MoodModel.MoodModel;
 import MoodView.MoodStatsView;
 import javafx.scene.control.ToolBar;

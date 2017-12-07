@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 

@@ -2,7 +2,6 @@
  */
 package NutritionSuggestionsController;
 
-import FoodView.EnterFoodView;
 import NutritionSuggestionView.SuggestionView;
 import NutritionSuggestionsModel.SuggestionModel;
 import javafx.scene.control.ToolBar;

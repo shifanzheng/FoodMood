@@ -2,8 +2,6 @@
  */
 package MoodView;
 
-import foodmood.FoodMood;
-import foodmood.TabbedView;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;

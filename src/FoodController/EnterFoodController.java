@@ -2,6 +2,7 @@
  */
 package FoodController;
 
+import DataStorage.GetTableData;
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
 import javafx.scene.control.ToolBar;
@@ -72,7 +73,13 @@ public class EnterFoodController {
             
             view.clearTextFields();
             
-            
+            String name = view.getFoodNameText();
+            int cal = view.getCaloriesText();
+            int pro = view.getProteinText();
+            int carb = view.getCarbsText();
+            int fat = view.getFatsText();
+            int mood = (int) view.getMoodSlider().getValue();
+            GetTableData data = new GetTableData(name,cal,pro,carb,fat,mood);
             
         
         

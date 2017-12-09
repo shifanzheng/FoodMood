@@ -52,12 +52,14 @@ public class Serialization implements java.io.Serializable {
             i.printStackTrace();
         }
     }
-    public Serialization(TableView table) throws FileNotFoundException, IOException{
-        Table t = new Table(table);
+
+    public Serialization(Object[] t){
+        
         try{
             FileOutputStream fileout = new FileOutputStream("table.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileout);
             out.writeObject(t);
+            out.writeObject('\n');
             out.close();
             fileout.close();
         }

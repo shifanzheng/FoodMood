@@ -71,12 +71,12 @@ public class DeSerialization implements java.io.Serializable {
             return;
         }
     }
-    public DeSerialization(TableView table){
-        Table t = null;
+    public DeSerialization(Object table){
+        
         try{
             FileInputStream fileIn = new FileInputStream("table.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            t = (Table) in.readObject();
+            Object[] t = (Object[]) in.readObject();
             in.close();
             fileIn.close();
         }

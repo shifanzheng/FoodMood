@@ -15,18 +15,15 @@ import java.io.IOException;
 public class SerializationTest {
 
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException{
-        String Food = "Pizza";
-        String Mood = "happy";
-        String macroN = "vitamin a?";
-        String User = "jim123";
-        String name = "jim";
-        String lname = "smith";
-        String pass = "***";
-        int protein = 4;
-        int fat = 5;
-        int cal = 1200;
-        int carbs = 432;
-        Serialization s = new Serialization(Food,Mood);
-        DeSerialization ds = new DeSerialization(Food, Mood);
+        Object[] table = new Object[6];
+        table[0]="pizza";
+        table[1]=21;
+        table[2]=3;
+        table[3]=4;
+        table[4]=5;
+        table[5]=9;
+ 
+        Serialization s = new Serialization(table);
+        DeSerialization ds = new DeSerialization(table);
     }
 }

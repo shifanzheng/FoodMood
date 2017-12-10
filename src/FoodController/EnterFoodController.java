@@ -71,7 +71,7 @@ public class EnterFoodController {
             
             view.getTable().getItems().add(foodData);
             
-            view.clearTextFields();
+            
             
             String name = view.getFoodNameText();
             int cal = view.getCaloriesText();
@@ -81,18 +81,13 @@ public class EnterFoodController {
             int mood = (int) view.getMoodSlider().getValue();
             GetTableData data = new GetTableData(name,cal,pro,carb,fat,mood);
             
-        
+            view.clearTextFields();
         
         
             
             
-            /*
-            try {
-                Serialization serial = new Serialization(view.getTable());
-            } catch (IOException ex) {
-                Logger.getLogger(EnterFoodController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            */
+            
+            
             
             System.out.println(model.getFoodList().size());
             

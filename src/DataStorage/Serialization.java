@@ -59,7 +59,7 @@ public class Serialization implements java.io.Serializable {
             FileOutputStream fileout = new FileOutputStream("table.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileout);
             out.writeObject(t);
-            out.writeObject('\n');
+            //out.writeObject('\n');
             out.close();
             fileout.close();
         }

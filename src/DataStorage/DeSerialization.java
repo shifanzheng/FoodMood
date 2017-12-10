@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
  * @author Jason
  */
 public class DeSerialization implements java.io.Serializable {
+    Object[] table;
     public DeSerialization (String food, int calories, String macroN, int protein, int carbs, int fat) throws FileNotFoundException, IOException, ClassNotFoundException{
         Food f = null;
         try{
@@ -71,14 +72,15 @@ public class DeSerialization implements java.io.Serializable {
             return;
         }
     }
-    public DeSerialization(Object table){
+    public DeSerialization(Object[] table){
         
         try{
             FileInputStream fileIn = new FileInputStream("table.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            Object[] t = (Object[]) in.readObject();
+            table = (Object[]) in.readObject();
             in.close();
             fileIn.close();
+            
         }
         catch(IOException i){
             i.printStackTrace();
@@ -89,6 +91,11 @@ public class DeSerialization implements java.io.Serializable {
             c.printStackTrace();
             return;
         }
+    }
+    
+    public Object[] returnTable(Object[] table){
+        this.table = table;
+        return table;
     }
     
 }

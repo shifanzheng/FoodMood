@@ -2,6 +2,7 @@
  */
 package FoodController;
 
+import DataStorage.DeSerialization;
 import DataStorage.GetTableData;
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
@@ -82,6 +83,11 @@ public class EnterFoodController {
             GetTableData data = new GetTableData(name,cal,pro,carb,fat,mood);
             
             view.clearTextFields();
+            
+            Object[] tableData = new Object[6];
+            DeSerialization de = new DeSerialization(tableData);
+            //tableData = de.returnTable(tableData);
+            System.out.println(tableData[1]);
         
         
             

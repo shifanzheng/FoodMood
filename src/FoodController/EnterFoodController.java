@@ -68,7 +68,9 @@ public class EnterFoodController {
             
             System.out.println(model.getMood());
             
+            //JASON - please serialize the "foodList" not the actual table.  It's much easier to work with.
             model.getFoodList().add(foodData);
+            //model.getFoodList() <- that returns the foodList object
             
             view.getTable().getItems().add(foodData);
             
@@ -87,9 +89,9 @@ public class EnterFoodController {
             Object[] tableData = new Object[6];
             DeSerialization de = new DeSerialization(tableData);
             //tableData = de.returnTable(tableData);
-            System.out.println(tableData[1]);
+            System.out.println("This is the table data: " + tableData[1]);
         
-        
+            
             
             
             

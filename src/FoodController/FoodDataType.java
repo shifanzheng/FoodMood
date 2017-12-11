@@ -18,6 +18,7 @@ public class FoodDataType {
     private final int carbs;
     private final int fat;
     private final int mood;
+    private double foodHappiness;
     
     
     public FoodDataType(String foodName, int calories, int protein, int carbs, int fat, int mood) {
@@ -27,6 +28,7 @@ public class FoodDataType {
         this.carbs = carbs;
         this.fat = fat;
         this.mood = mood;
+        this.foodHappiness = 0;
     }
     
     public String getFoodName() {
@@ -51,6 +53,14 @@ public class FoodDataType {
     
     public int getMood() {
         return mood;
+    }
+
+    public double getFoodHappiness() {
+        return foodHappiness;
+    }
+
+    public void setFoodHappiness(double foodHappiness) {
+        this.foodHappiness = foodHappiness;
     }
     
 }

@@ -2,13 +2,18 @@
  */
 package PersonalAnalysisView;
 
+import java.util.Arrays;
+import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,13 +24,17 @@ import javafx.stage.Stage;
 public class MicroView {
 
     private Stage primaryStage;
-    ToolBar toolBar;
+    private ToolBar toolBar;
     private Scene scene;
-    BorderPane root;
+    private BorderPane root;
 
     private Label analysisInfo;
     private Button analysisBt;
     private Label nutrientInfo;
+    
+    private Label suggestions;
+    
+    private StackedBarChart<String, Number> sbc;
 
     /**
      * Default constructor for MicroView class.
@@ -33,21 +42,55 @@ public class MicroView {
     public MicroView(Stage primaryStage) {
         this.primaryStage = primaryStage;
 
-        GridPane grid = new GridPane();
+        //GridPane grid = new GridPane();
+        VBox vbox = new VBox();
 
-        grid.setAlignment(Pos.TOP_LEFT);
-        grid.setVgap(15);
+        vbox.setAlignment(Pos.TOP_LEFT);
 
         Label analysisLabel = new Label("Analysis View\n");
         analysisBt = new Button("Give Analysis");
-        analysisInfo = new Label("Analysis Results");
-        nutrientInfo = new Label("Favorite Nutrient");
-        grid.add(analysisLabel, 0, 0);
-        grid.add(analysisBt, 0, 1);
-        grid.add(analysisInfo, 0, 2);
-        grid.add(nutrientInfo, 0, 3);
+        analysisInfo = new Label("");
+        nutrientInfo = new Label("");
+        suggestions = new Label("");
+        
+        
+        
 
-        root = new BorderPane(grid);
+        root = new BorderPane(vbox);
+        
+        //TEST CODE
+        
+        final String proteins = "Proteins";
+        final String carbs = "Carbs";
+        final String fats = "Fats";
+
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        sbc = new StackedBarChart<String, Number>(xAxis, yAxis);
+        final XYChart.Series<String, Number> series1 =
+                new XYChart.Series<String, Number>();
+        final XYChart.Series<String, Number> series2 =
+                new XYChart.Series<String, Number>();
+        final XYChart.Series<String, Number> series3 =
+                new XYChart.Series<String, Number>();
+ 
+        sbc.setTitle("Macronutrients by Percent Mood Increase");
+        xAxis.setCategories(FXCollections.<String>observableArrayList(
+                Arrays.asList(proteins, carbs, fats)));
+        yAxis.setLabel("Value");
+        sbc.setLegendVisible(false);
+        
+        series1.getData().add(new XYChart.Data<String, Number>(proteins, 0));
+        series2.getData().add(new XYChart.Data<String, Number>(carbs, 0));
+        series3.getData().add(new XYChart.Data<String, Number>(fats, 0));
+        
+        sbc.setVisible(false);
+
+        sbc.getData().addAll(series1, series2, series3);
+        
+        vbox.getChildren().addAll(analysisLabel, analysisBt, analysisInfo, nutrientInfo, sbc, suggestions);
+        
+        //END TEST CODE
 
         scene = new Scene(root, 500, 700);
         String css = this.getClass().getResource("/CSS/Theme1.css").toExternalForm();
@@ -117,5 +160,23 @@ public class MicroView {
     public void setNutrientInfo(Label nutrientInfo) {
         this.nutrientInfo = nutrientInfo;
     }
+
+    public StackedBarChart<String, Number> getSbc() {
+        return sbc;
+    }
+
+    public void setSbc(StackedBarChart<String, Number> sbc) {
+        this.sbc = sbc;
+    }
+
+    public Label getSuggestions() {
+        return suggestions;
+    }
+
+    public void setSuggestions(Label suggestions) {
+        this.suggestions = suggestions;
+    }
+    
+    
 
 }

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package DataStorage;
+import FoodController.FoodDataType;
 import java.io.*;
+import java.util.ArrayList;
 import javafx.scene.control.TableView;
 /**
  *
@@ -53,12 +55,12 @@ public class Serialization implements java.io.Serializable {
         }
     }
 
-    public Serialization(Object[] t){
+    public Serialization(ArrayList<FoodDataType> table){
         
         try{
             FileOutputStream fileout = new FileOutputStream("table.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileout);
-            out.writeObject(t);
+            out.writeObject(table);
             //out.writeObject('\n');
             out.close();
             fileout.close();

@@ -86,10 +86,10 @@ public class EnterFoodController {
             
             view.clearTextFields();
             
-            Object[] tableData = new Object[6];
-            DeSerialization de = new DeSerialization(tableData);
+            
+            //DeSerialization de = new DeSerialization(tableData);
             //tableData = de.returnTable(tableData);
-            System.out.println("This is the table data: " + tableData[1]);
+           
         
             
             

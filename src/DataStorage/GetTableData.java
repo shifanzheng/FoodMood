@@ -33,7 +33,7 @@ public class GetTableData {
         tData[3]=f;
         tData[4]=car;
         tData[5]=m;
-        Serialization ser = new Serialization(tData);
+        //Serialization ser = new Serialization(tData);
         
     }
 }

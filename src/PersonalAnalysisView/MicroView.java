@@ -73,6 +73,11 @@ public class MicroView {
                 new XYChart.Series<String, Number>();
         final XYChart.Series<String, Number> series3 =
                 new XYChart.Series<String, Number>();
+        
+        yAxis.setAutoRanging(false);
+        xAxis.setAutoRanging(false);
+        yAxis.setUpperBound(100);
+        yAxis.setLowerBound(0);
  
         sbc.setTitle("Macronutrients by Percent Mood Increase");
         xAxis.setCategories(FXCollections.<String>observableArrayList(

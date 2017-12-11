@@ -192,8 +192,10 @@ public class MicroController {
                     Arrays.asList(proteins, carbs, fats)));
             yAxis.setLabel("Value");
             
+            yAxis.setAutoRanging(false);
+            xAxis.setAutoRanging(false);
             yAxis.setUpperBound(100);
-            yAxis.setLowerBound(100);
+            yAxis.setLowerBound(0);
             
             series1.getData().add(new XYChart.Data<String, Number>(proteins, percentCarbs));
             series2.getData().add(new XYChart.Data<String, Number>(carbs, percentProteins));

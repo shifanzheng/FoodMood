@@ -8,6 +8,7 @@ package DataStorage;
 import FoodController.FoodDataType;
 import java.io.*;
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 
 /**
@@ -74,12 +75,12 @@ public class DeSerialization implements java.io.Serializable {
             return;
         }
     }
-    public DeSerialization(ArrayList<FoodDataType> table){
+    public DeSerialization(ObservableList<FoodDataType> table){
         
         try{
             FileInputStream fileIn = new FileInputStream("table.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            table = (ArrayList<FoodDataType>) in.readObject();
+            table = (ObservableList<FoodDataType>) in.readObject();
             in.close();
             fileIn.close();
             

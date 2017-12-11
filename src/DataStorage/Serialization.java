@@ -7,6 +7,7 @@ package DataStorage;
 import FoodController.FoodDataType;
 import java.io.*;
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 /**
  *
@@ -55,7 +56,7 @@ public class Serialization implements java.io.Serializable {
         }
     }
 
-    public Serialization(ArrayList<FoodDataType> table){
+    public Serialization(ObservableList<FoodDataType> table){
         
         try{
             FileOutputStream fileout = new FileOutputStream("table.ser");

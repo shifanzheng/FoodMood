@@ -4,15 +4,11 @@ package FoodController;
 
 import DataStorage.DeSerialization;
 import DataStorage.GetTableData;
+import DataStorage.Serialization;
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
-import DataStorage.Serialization;
-import MoodController.MoodDataType;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -34,6 +30,7 @@ public class EnterFoodController {
         this.model = model;
         this.view = view;
         
+        //deserialization();
         setBehaviors();
         
     }
@@ -49,6 +46,26 @@ public class EnterFoodController {
         
     public void setToolBar(ToolBar toolBar){
         view.setToolBar(toolBar);
+    }
+    
+    public void deserialization(){
+        
+        try{
+            DeSerialization de = new DeSerialization(model.getFoodList());
+        }catch(Exception E){
+            
+        }
+        
+    }
+    
+    public void serialization(){
+        
+        try{
+            //Serialization de = new Serialization(model.getFoodList());
+        }catch(Exception E){
+            
+        }
+        
     }
     
     public void submitButton(){
@@ -74,7 +91,7 @@ public class EnterFoodController {
             
             view.getTable().getItems().add(foodData);
             
-            
+            //serialization();
             
             String name = view.getFoodNameText();
             int cal = view.getCaloriesText();
@@ -101,5 +118,7 @@ public class EnterFoodController {
             
         });
     }
+    
+    
     
 }

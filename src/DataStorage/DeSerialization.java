@@ -7,9 +7,7 @@ package DataStorage;
 
 import FoodController.FoodDataType;
 import java.io.*;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 
 /**
  *

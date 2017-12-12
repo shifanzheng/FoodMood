@@ -4,7 +4,6 @@ package FoodController;
 
 import DataStorage.DeSerialization;
 import DataStorage.GetTableData;
-import DataStorage.Serialization;
 import FoodModel.FoodModel;
 import FoodView.EnterFoodView;
 import javafx.scene.control.ToolBar;
